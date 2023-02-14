@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        
+<mapper namespace="bit.data.dao.MemberDao">
+	<select id="getTotalCount" resultType="int">
+		select count(*) from member
+	</select>
+	
+	<select id="getIdSearch" parameterType="String" resultType="int">
+		select count(*) from member where loginid=#{id}
+		<!-- 파라미터 쪽 변수에 컬럼을 넣을때는 ${} 값을 넣을때는 #{} -->
+		<!-- #{id} 가 파라미터 String 타입이고 -->
+		<!-- count(*) 이 숫자로 출력되므로 resultType은 int -->
+		<!-- Dao 에서 getSearchId가 입력받는 값이 String id 이므로 꼭 둘이 맞춰야함 id <-> #{id} -->
+	</select>
+	
+	<insert id="insertMember" parameterType="mdto">
+		<!-- 마이바티스 관련 설정에서 alias 해줬음 : mdto -->
+		insert into member (loginid,pass,name,photo,hp,email,address,gaipday)
+		values (#{loginid},#{pass},#{name},#{photo},#{hp},#{email},#{address},now())
+		<!-- memberDto 에서 가져오므로 반드시 같게써야됨 -->
+	</insert>
+	
+	<!-- 전체 회원 정보 -->
+	<select id="getAllMembers" resultType="mdto">	<!-- 전체를 구하기때문에 parameterType필요없음 -->
+		select * from member order by loginid asc
+	
+	</select>
+	
+	<!-- id에 해당하는 이름을 반환하여 로그인했을때 우측 상단에 "OO님" 표기  -->
+	<select id="getName" parameterType="String" resultType="String">
+		select name from member where loginid=#{id}
+	
+	</select>
+	
+	<!-- 로그인 상태 체크 -->
+	<select id="loginIdPassCheck" parameterType="Map" resultType="int">
+	<!-- dto로 만들기 애매한애들은 Map 또는 Hashmap -->
+		select count(*) from member where loginid=#{loginid} and pass=#{loginpass}
+	</select>
+	
+	<!-- id로 데이터 가져오기 -->
+	<select id="getDataById" parameterType="String" resultType="mdto">
+		select * from member where loginid=#{id}
+	</select>
+	
+	<!-- num값으로 데이터 가져오기 -->
+	<select id="getDataByNum" parameterType="int" resultType="mdto">
+		select * from member where num=#{num}
+	</select>
+	
+	<update id="updatePhoto" parameterType="Map">
+		update member set photo=#{photo} where num=#{num}
+	</update>
+	
+	<update id="updateMember" parameterType="mdto">
+		update member set name=#{name},hp=#{hp},address=#{address},email=#{email} where num=#{num}
+	</update>
+	
+	<delete id="deleteMember" parameterType="int">
+		delete from member where num=#{num}
+	</delete>
+</mapper>

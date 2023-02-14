@@ -1,0 +1,10 @@
+[
+	{"name":"김말자","score":[90,89,100],"age":"21세",
+	"photo":"../image2/30.jpg"},
+	
+	{"name":"이진욱","score":[90,56],"age":"24세",
+	"photo":"../image2/26.jpg"},
+	
+	{"name":"박상우","score":[90,89,56,70],"age":"30세",
+	"photo":"../image2/29.jpg"}
+]

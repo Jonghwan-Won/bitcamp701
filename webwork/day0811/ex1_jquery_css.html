@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Edu+VIC+WA+NT+Beginner:wght@600&family=
+                Gamja+Flower&family=Single+Day&family=Jua&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+
+    <script>
+        //jquery 사용시 window.onload에 해당됨 #1
+        // $(document).ready(function(){
+        //     alert("처음 로딩시 호출");
+        // });
+
+        //jquery 사용시 window.onload에 해당됨 #2
+        $(function(){
+            // alert("처음 로딩시 호출");
+
+            // 1.css:스타일 변경 또는 반환
+
+            //방법 #1 : 2번 연속 css 호출 적용
+            // $("#good").css("color","red");  //document.getElementByID("good") 과 같음
+            // $("#good").css("background-color","yellow");
+
+            //방법 #2 : 2번 연속 css 호출 적용 (요소값이 같을때 $("#good"))
+            // $("#good").css("color","magenta").css("background-color","#ffffcc");
+
+            //방법 #3 : style 변경할 항목이 많을 경우
+            $("#good").css({
+                "color":"orange",
+                "background-color":"lightgray",
+                "width":"300px",
+                "border":"2px solid gray"
+            });
+
+            //selector 가 복잡할경우도 간단하게 처리 가능
+            //2군데 존재 : 동시에 적용됨
+            $("div.hello>").css({
+                "font-size":"3em",
+                "color":"blue",
+                "font-weight":"bold"
+            });
+
+            // #good 의 배경색을 얻어서 div.hello의 글자색으로 적용
+            // var bg=$("#good").css("background-color");
+            // $("div.hello").css("color",bg);
+            
+            // 한줄로 줄여써보자
+            $("div.hello").css("color",$("#good").css("background-color"));
+
+            //div.bit 바로 아래 img의 width를 100px 로 변경
+            //$("div.bit>img").css("width","100px");
+            $("div.bit>img").css({
+                "width":"100px"
+            });
+            //중괄호 사용하면 형식이 달라짐
+
+            //body 태그 아래의 모든 태그의 글꼴을 Jua로 변경
+            $("body *").css("font-family","Jua");
+            
+            //div.bit 의 속성을 변경하는데 위치이동
+            //(left:300px top:200px width:300px, height:150px ,border:3px groove gold)
+            //left 와 top 은 무조건 position 이 들어가야함
+            $("div.bit").css({
+                "position":"absolute",
+                "left":"450px",
+                "top":"200px",
+                "width":"300px",
+                "height":"150px",
+                "border":"3px groove gold"
+                // border:"3px groove gold" 속성명은 한단어일때 "" 생략 가능
+            });
+
+            //모든 b 태그의 글자색을 변경
+            $("b").css("color","magenta");
+
+            //모든 b 태그중에서 1번 인덱스만 변경  (0번이 첫번째)
+            // $("b:eq(1)").css("background-color","orange");   //방법 1 -> eq를 내부에
+            $("b").eq(1).css("background-color","orange");      //방법 2 -> eq를 외부에
+
+            //모든 b 태그중 첫번째꺼의 border 변경
+            $("b:first").css("border","1px solid red"); // eq(0) 써도 됨
+            // $("b").first().css("border","1px solid red");
+
+            //모든 b 태그중 마지막의 border 변경
+            $("b:last").css("border","2px dotted purple");  // b 태그가 많아서 숫자를 세기 힘들때 first 와 last 활용
+            // $("b").last().css("border","2px dotted purple");
+
+            //gt(3) : 3번 이후, lt(3) : 3번 이전
+            $("b:gt(1)").css("font-size","40px");   //b태그 1번 이후부터 모두 적용(2번부터)
+            $("b:lt(2)").css("background-color","red"); //b태그 2번 이전의 b태그에 모두 적용 (0번 1번)
+
+        });//function close
+    </script>
+
+    
+</head>
+<body>
+    <h2 id="good">h2 id good</h2>
+    <h3 class="good2">h3 class good2</h3>
+
+    <div class="hello">
+        div class hello
+        <div>
+            div hello 아래 div
+        </div>
+    </div>
+
+    <div class="bit">
+        <b>div bit 아래 b 태그 0번</b>
+        <span>div bit 아래 span 태그</span>
+        <img src="../미야자키/05.png">
+    </div>
+
+    <div class="hello">
+        div hello2
+        <img src="../음식사진/12.jpg">
+        <div>div hello 아래의 div 태그</div>
+    </div>
+
+    <b>1번 단독 b태그 #1</b><b>2번 단독 b태그 #2</b><b>3번 단독 b태그 #3</b>
+
+
+</body>
+</html>

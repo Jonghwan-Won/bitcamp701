@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!-- 문제 3. img 로 width=200 height=180 으로 사진(아무거나) body 에 넣은후 이미지를 클릭하면
+    아래 div 태그안에 이미지의 각종 정보(src,width,height) 를 얻어서 출력하시오(getAttribute,innerHTML 사용) -->
+
+
+    <h2>문제 3 :  </h2>
+    <img src="../쇼핑몰사진/8.jpg" width="200" height="180" id="img2">
+    <!-- 이미지 삽입 -->
+
+    <div id="result" style="font-size: 20px;"> </div>
+    <!-- div 태그에 "result"라는 id와 style 적용 -->
+    
+    <script>
+        document.getElementById("img2").onclick=function()
+        {
+            var r=document.getElementById("result");
+            var s="이미지 정보<br>";
+            s+="이미지명:"+this.getAttribute("src")+"<br>";
+            s+="너 비:"+this.getAttribute("width")+"<br>";
+            s+="높 이:"+this.getAttribute("height")+"<br>";
+
+            //출력
+            r.innerHTML=s;
+        }
+    </script>
+
+
+</body>
+</html>

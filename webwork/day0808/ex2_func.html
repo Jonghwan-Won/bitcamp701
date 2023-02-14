@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <h2>자바스크립트의 내장함수 익히기</h2>
+    <script>
+        var su1="7";
+        var su2="4";
+        document.write(su1+su2+"<br>"); //74
+        document.write(su1*su2+"<br>"); //28
+        document.write(parseInt(su1)+parseInt(su2)+"<br>"); //11
+        document.write(Number(su1)+Number(su2)+"<br>"); //11
+        //eval(수식) : 실제 계산해서 결과 출력
+        document.write(eval(su1+su2)+"<br>");   //74
+
+        var a=eval("8*7");
+        var b=eval("6-8+3");
+        var c=eval("6+8");
+        document.write(a+","+b+","+c+"<br>");  //56, 1, 14
+
+        //isNaN: nan(not a number) : 숫자가 아니면 true 반환, 숫자면 false 반환
+        document.write(isNaN("7")+"<br>"); //false: 숫자일경우
+        document.write(isNaN("7a")+"<br>"); //true: 문자라는 뜻
+        document.write(isNaN("7!")+"<br>"); //true: 문자라는 뜻
+
+    </script>
+
+    <button type="button" id="btn1"> 새 문서 열기 </button>
+    <script>
+        document.getElementById("btn1").onclick=function(){
+            window.open("../day0722/ex4_array.html","w","width=400px,height=200px,left=500px,top=100px");
+        }
+    </script>
+
+</body>
+</html>

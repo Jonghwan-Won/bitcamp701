@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #photo{
+            position: absolute;
+            left: 100px;
+            top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <img src="../미야자키/05.png" id="photo">
+
+    <script>
+        var photo=document.getElementById("photo");
+
+        setTimeout(() => {
+            // alert("한번 이동");
+            photo.style.left="500px";
+            photo.style.top="200px";
+            photo.style.width="400px";
+        }, 3000);   //3초 뒤 함수호출
+        
+    </script>
+</body>
+</html>

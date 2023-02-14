@@ -1,0 +1,62 @@
+* {
+  font-family: "jua";
+}
+
+ul.menu {
+  list-style: none;
+}
+
+ul.menu li {
+  float: left;
+  width: 150px;
+  height: 60px;
+  line-height: 60px;
+  border: 1px solid black;
+  text-align: center;
+  font-size: 22px;
+  margin-right: 10px;
+  border-radius: 10px;
+
+  background-color: rgb(76, 0, 76);
+}
+
+ul.menu li:hover {
+  background-color: black;
+  box-shadow: 5px 5px 5px gray;
+}
+
+ul.menu li a {
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+}
+
+ul.menu li a:hover {
+  color: white;
+}
+
+td {
+  vertical-align: middle;
+  text-align: center;
+}
+
+img.foodphoto {
+  width: 200px;
+  height: 200px;
+  border: 2px solid gray;
+  border-radius: 30px;
+  box-shadow: 3px 3px 3px #ddd;
+  margin-left: 10px;
+}
+
+@font-face {
+  font-family: "KOFIHDrLEEJWTTF-B";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/KOFIHDrLEEJWTTF-B.woff2")
+    format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
+pre {
+  font-size: 24px;
+}

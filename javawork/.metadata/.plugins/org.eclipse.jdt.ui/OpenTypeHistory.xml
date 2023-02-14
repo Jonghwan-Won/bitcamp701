@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<typeInfoHistroy>
+    <typeInfo handle="=Java0711Project/src&lt;test.day0726{DaoInter.java[DaoInter" modifiers="513" timestamp="1658797044036"/>
+    <typeInfo handle="=SpringMiniProject/C:\/Program Files\/Java\/jdk-11.0.15.1\/lib\/jrt-fs.jar`java.base=/javadoc_location=/https:\/\/docs.oracle.com\/en\/java\/javase\/11\/docs\/api\/=/=/maven.pomderived=/true=/&lt;java.lang.reflect(Member.class[Member" modifiers="1537" timestamp="1657806094175"/>
+    <typeInfo handle="=SpringMiniProject/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;bit.data.service{MemberServiceInter.java[MemberServiceInter" modifiers="513" timestamp="1663638013633"/>
+    <typeInfo handle="=SpringMiniProject/C:\/Users\/user\/.m2\/repository\/org\/mybatis\/mybatis\/3.5.9\/mybatis-3.5.9.jar=/maven.pomderived=/true=/=/org.eclipse.jst.component.archivename=/mybatis-3.5.9.jar=/=/maven.groupId=/org.mybatis=/=/maven.artifactId=/mybatis=/=/maven.version=/3.5.9=/=/maven.scope=/compile=/=/maven.pomderived=/true=/=/org.eclipse.jst.component.dependency=/\/WEB-INF\/lib=/&lt;org.apache.ibatis.ognl(MemberAccess.class[MemberAccess" modifiers="1537" timestamp="1662607462871"/>
+    <typeInfo handle="=SpringMiniProject/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;bit.data.dao{MemberDaoInter.java[MemberDaoInter" modifiers="513" timestamp="1663574538295"/>
+    <typeInfo handle="=SpringMiniProject/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;bit.data.service{BoardServiceInter.java[BoardServiceInter" modifiers="513" timestamp="1663728738748"/>
+    <typeInfo handle="=SpringMiniProject/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;bit.data.dao{BoardDaoInter.java[BoardDaoInter" modifiers="513" timestamp="1663728348592"/>
+    <typeInfo handle="=SpringMiniProject/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;bit.data.dao{BoardAnswerDaoInter.java[BoardAnswerDaoInter" modifiers="513" timestamp="1663828339262"/>
+    <typeInfo handle="=SpringMiniProject/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;bit.data.service{BoardAnswerServiceInter.java[BoardAnswerServiceInter" modifiers="513" timestamp="1663829497159"/>
+</typeInfoHistroy>

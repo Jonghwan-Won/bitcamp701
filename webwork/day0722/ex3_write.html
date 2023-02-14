@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style.css"> <!--style.css에 @import로 font넣음 -->
+</head>
+<style>
+    img.mi{
+        width:50px;
+    }
+</style>
+
+
+<body>
+    <!-- body안에서 script 로 출력을 할 경우 document.write 로 출력 -->
+    <script>
+        document.write("<h3>여기는 script영역 입니다</h3>")
+        for(var i=1;i<=10;i++){
+            document.write("hello script "+ i +"<br>")
+        }
+    </script>
+
+    <hr>
+    <script>
+            for(var i=1;i<=20;i++){
+            var imgname="../미야자키/"+(i<10?"0":"")+i+".png";  // 미야자키 폴더 파일명들은 01~09가 존재하므로 0을 붙이기 위한 조건
+            var s = "<img src='"+imgname+"' class='mi'>";
+            document.write(s);
+            if(i%5==0)
+                document.write("<br><br>"); // 이미지 5개씩 출력
+        }
+    </script>
+    
+</body>
+</html>

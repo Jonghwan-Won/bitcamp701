@@ -1,0 +1,23 @@
+* {
+  font-family: "Jua";
+}
+
+div.box {
+  float: left;
+  width: 60px;
+  height: 60px;
+  border-radius: 100px;
+  border: 1px solid black;
+  margin-right: 10px;
+}
+
+img.photo {
+  width: 60px;
+  border: 1px soild gray;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+img.photo:hover {
+  box-shadow: 5px 5px 5px gray;
+}

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Edu+VIC+WA+NT+Beginner:wght@600&family=
+                Gamja+Flower&family=Single+Day&family=Jua&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+
+    <script>
+        //attr("속성"):해당 속성의 값을 반환
+        //attr("속성","값"):해당 속성을 값으로 변경
+        $(function(){
+            //모든 img 태그에 마우스를 올리면 src변경 (ex.day0808 > munje 참고)
+            // $("img").mouseover(function(){
+            //     //마우스가 접근한 이미지의 객체는 this 로 넘어온다
+            //     //jquery 에서는 mouse 이벤트에 on을 생략함
+
+            //     //src를 변경전 현재 src를 따로 저장해둔다
+            //     imageName=$(this).attr("src");  
+            //     //imageName 은 임의로 만든 네이밍, src 값을 반환해서 imageName에 저장
+            //     //var imageName 으로 선언하면 이 안에서밖에 못쓰므로 var없이 선언
+
+            //     //마우스가 접근한 이미지의 속성중 src를 변경
+            //     $(this).attr("src","../미야자키/10.png");
+            // });
+
+            //마우스가 이미지에서 벗어나면 바로 원래 이미지로 변경
+            // $("img").mouseout(function(){
+            //     $(this).attr("src",imageName);
+            // });
+
+            //mouseover + mouseout 또는 mouseenter + mouseleave
+            //주로 같이 쓰는 이벤트들인데, 이 경우 hover 로 한번에 줄 수 있다
+            $("h3").hover(function(){
+                $(this).css("background-color","yellow");
+            },function(){
+                $(this).css("background-color","white");
+            });
+
+            //첫번째 이미지를 클릭하면 2번 img의 src에 같은 이미지 넣기
+            $("img:first").click(function(){
+                //현재 이미지를 얻는다
+                var curName=$(this).attr("src");
+                //현재 이미지의 너비를 얻는다
+                var w=$(this).attr("width");
+
+                //2번 인덱스의 이미지에 적용 (src 와 width)
+                // $("img:eq(2)").attr("src",curName).css("width",w);
+                $("img:eq(2)").attr("src",curName).attr("width",w);
+                //width는 attr에도 있고 css에도 있어서 둘 다 사용가능한듯
+
+
+                //속성 중 irum 값을 얻어서 2번 사진 다음에 b태그로 추가하기
+                //after: 특정 태그 이후에 추가하기
+                //append: 특정 태그 안에 추가하기
+                var irum = $(this).attr("irum");
+                $("img:eq(2)").after("<b>" + irum + "</b><br>");
+            })
+
+            //첫번째 h3클릭시 width, height를 열어서 그 크기로 윈도우 오픈하기
+            //파일은 어제만든 달력(day0810 -> ex5)
+            $("h3:first").click(function(){
+                var w=$(this).attr("width");
+                var h=$(this).attr("height");
+
+                window.open("../day0810/ex5_calendar.html","w",
+                    "width="+w+"px,height="+h+"px,left=400px,top=100px");
+                    //두번째 파라미터는 윈도우 이름으로 아무거나 줘도되도됨
+            })
+            
+            //figure>img 클릭 시 src를 얻어서 전체 img 중 2번 이후에 모두 같은 이미지로 넣고
+            $("figure>img").click(function(){
+                //해당 이미지 소스를 얻는다
+                var selcetImg=$(this).attr("src");
+                //전체 img 중 인덱스 2번 이후의 모든 img에 적용
+                $("img:gt(2)").attr("src",selcetImg);
+            
+                //클릭한 이미지의  다음태그 안의 text를 얻어서 2번째 h3에 넣기
+                //next(): 다음 태그, prev(): 이전 태그
+                //html(): js의 innerHTML
+                //text(): js의 innerText 와 같다
+                var foodName=$(this).next().text(); //클릭한 것의 다음
+                $("h3:eq(1)").text(foodName);   //글자만있을땐 html text 상관없는데 br태그같은게 들어있으면 무조건 HTML로 
+
+
+            });
+            
+
+
+        });
+    </script>
+
+</head>
+<body>
+    <img src="../연예인사진/12.jpg" width="200" irum="박보영"><br>
+    <h3 width="500" height="400">윈도우 오픈</h3>
+    
+    <figure> 
+        <!-- figure : 이미지와 캡션을 같이 사용할때 활용.. 이미지가 여러개일때 캡션과 짝을 맞추기 쉬움 -->
+        <img src="../음식사진/10.jpg">
+        <figcaption>에그마요덮밥</figcaption>
+    </figure>
+
+    <figure> 
+        <img src="../음식사진/11.jpg">
+        <figcaption>망고빙수</figcaption>
+    </figure>
+
+    <h3>첫번째 이미지를 클릭하면 아래의 이미지에 카피하기</h3>
+    <img src="" alt="사진1"> <!-- alt : 사진이 없을때 표기되는 문구 -->
+    <img src="" alt="사진2">
+    <img src="" alt="사진3">
+    <img src="" alt="사진4">
+</body>
+</html>

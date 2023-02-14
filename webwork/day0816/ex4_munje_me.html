@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=Edu+VIC+WA+NT+Beginner:wght@600&family=Gamja+Flower&family=Single+Day&family=Jua&family=Nanum+Pen+Script&display=swap"
+        rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        * {
+            font-family: 'Jua';
+        }
+
+        .a_part {
+            margin-left: 100px;
+            margin-top: 20px;
+        }
+
+        .offcanvas-body {
+            font-size: 20px;
+        }
+        
+        p{
+            height: 50px;
+            line-height: 50px;
+        }
+
+        p:hover{
+            background-color: green;
+            color: white;
+            
+        }
+
+
+        .print {
+            /* margin-left: 200px; */
+            text-align: center;
+            position: absolute;
+            left: 1500px;
+        }
+
+
+    </style>
+
+    <script>
+        $(function () {
+
+            $(".offcanvas-body > p").click(function () {
+                var s = $(this).attr('src');
+                var p = $(this).attr('price');
+
+                console.log(s);
+
+                $(".imsgsel").attr('src', s)
+                $(".i").text(p)
+
+
+            });
+
+
+        });
+    </script>
+
+</head>
+
+<body>
+    <div class="a_part">
+        <h2>BS5의 Sidebar Menu (Offcanvas)</h2>
+        <br>
+        <h5>스타벅스입니다. 메뉴를 고르세요</h5>
+        <br>
+        <b class="imgurl" style="font-weight: bold; font-size: 30px;"></b>
+    </div>
+
+
+    <!-- Offcanvas Sidebar -->
+    <div class="offcanvas offcanvas-start" id="demo">
+
+        <div class="offcanvas-header">
+            <h1 class="offcanvas-title">사이드바 메뉴</h1>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+        </div>
+
+        <div class="offcanvas-body">
+            <p src="../스벅메뉴/아이스아메리카노.JPG" price="4,500원" style="cursor: pointer;">아이스 아메리카노</p>
+            <p src="../스벅메뉴/아이스카페라떼.JPG" price="5,000원" style="cursor: pointer;">아이스 카페라떼</p>
+            <p src="../스벅메뉴/자몽허니블랙티.JPG" price="5,700원" style="cursor: pointer;">자몽 허니 블랙티</p>
+        </div>
+
+    </div>
+
+    <!-- Button to open the offcanvas sidebar -->
+    <button class="btn btn-success" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo"
+        style="margin-left: 100px;">
+        Open Sidebar
+    </button>
+
+    <br>
+    <br>
+    <div class="print">
+        <img src="" class="imsgsel"></img>
+        <br>
+        <b class="i"></b>
+    </div>
+
+
+
+</body>
+
+</html>

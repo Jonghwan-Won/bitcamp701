@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div.container{
+            margin-top: 100px;
+            margin-left: 200px;
+        }
+
+        div.container *{
+            font-size: 15px;;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <input type="text" style="width:50px" id="txtsu1">
+        <select id="seloper" style="width: 130px">
+            <option disabled selected hidden>선택하세요</option>
+            <option>+</option>
+            <option>-</option>
+            <option>*</option>
+            <option>/</option>
+        </select>
+        <input type="text" style="width:50px" id="txtsu2">
+        <br><br>
+        <div>1</div>
+    </div>
+
+    <script>
+        var r=document.querySelector("div.container>div");
+        var s1=document.getElementById("txtsu1");
+        var s2=document.getElementById("txtsu2");
+
+        document.getElementById("seloper").onchange=function(){
+            // alert(this.value);
+            if(isNaN(s1.value)){
+                alert("숫자1이 숫자형태가 아닙니다");
+                return;
+            }
+
+            if(isNaN(s2.value)){
+                alert("숫자2가 숫자형태가 아닙니다");
+                return;
+            }
+
+            //수식을 문자열 형태로 만든다
+            var susik=s1.value+this.value+s2.value;
+
+            r.style.fontSize="35px";
+            r.innerHTML=susik+"="+eval(susik);  //eval: 무자열 형태의 수식을 계산해준다
+
+        }
+    </script>
+
+</body>
+</html>

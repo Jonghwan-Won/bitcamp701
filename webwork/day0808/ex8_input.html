@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style.css">
+
+    <style>
+        table{
+            width: 700px;
+            border-collapse: collapse;
+        }
+
+        table th,table td{
+            border: 1px solid gray;
+        }
+    </style>
+
+</head>
+<body>
+    <h2>input 태그 공부하기</h2>
+    <table>
+        <tr bgcolor="lightgray" height="40">
+            <th width="100">종류</th>
+            <th width="400">태그</th>
+            <th>이벤트 후 결과</th>
+        </tr>
+        <tr>
+            <td>1. input-text</td>
+            <td>
+                <input type="text" id="txt1" placeholder="값을 입력해라">   <!-- html5 에서 생김 -->
+                : 입력하면 옆칸에 바로 나와요
+            </td>
+            <td class="a"></td>
+        </tr>
+
+        <tr>
+            <td>2. input-text</td>
+            <td>
+                <input type="text" id="txt2" placeholder="값을 입력해라">   <!-- html5 에서 생김 -->
+                : 입력 후 엔터를 누르면 나와요
+            </td>
+            <td class="b"></td>
+        </tr>
+
+        <tr>
+            <td>3. input-color</td>
+            <td>
+                <input type="color" value="#ccffff" id="color1">
+                
+            </td>
+            <td class="c"></td>
+        </tr>
+
+        <tr>
+            <td>4. input-checkbox</td>
+            <td>
+                <!-- label 태그로 감싸면 글자를 눌러도 클릭 이벤트가 호출된다 -->
+                <!-- label 태그로 감싸지 않으면 정확하게 체크박스를 눌러야됨 -->
+               <label> <input type="checkbox" id="chk1">굵게 </label>
+               <label> <input type="checkbox" id="chk2">밑줄 </label>
+                
+            </td>
+            <td class="d">Checkbox</td>
+        </tr>
+
+        <tr>
+            <td>5. input-radio</td>
+            <td>
+                <!-- 같은 name 끼리 그룹화가 되므로 그중에 하나만 선택된다 -->
+                <!-- 초기 체크는 checked 라는 속성 추가 -->
+               <label><input type="radio" value="red" name="tcolor">빨강</label>
+               <label><input type="radio" value="green" name="tcolor">초록</label>
+               <label><input type="radio" value="black" name="tcolor" checked>검정</label>
+               <!-- checked 속성 추가함으로써 기본값은 black이 됨 -->
+               <label><input type="radio" value="magenta" name="tcolor">분홍</label>
+                
+            </td>
+            <td class="e">Radio</td>
+        </tr>
+
+
+    </table>
+
+    <script> //body에 줄때는 window.onload 안해도됨
+        //1번 이벤트
+        document.getElementById("txt1").onkeyup=function(e){
+            //입력값을 읽는 방법 1
+            // var v=e.target.value;
+
+            //입력값을 읽는 방법 2
+            var v=this.value;
+
+            document.querySelector(".a").innerHTML=v;
+        }
+
+        //2번 이벤트
+        document.getElementById("txt2").onkeyup=function(e){
+            //입력값
+            var v=this.value;
+            //엔터 입력 시 출력
+            if(e.keyCode==13) {  //Enter(엔터)의 아스키코드 13
+                document.querySelector(".b").innerHTML=v;
+
+            }
+
+        }
+
+        //3번 이벤트
+        document.getElementById("color1").onchange=function(){
+            //선택한 색상
+            var selcolor=this.value;
+            //색 적용
+            document.querySelector(".c").style.backgroundColor=selcolor;
+            //색상 출력
+            document.querySelector(".c").innerHTML=selcolor;
+        }
+
+        //4번 이벤트
+        document.getElementById("chk1").onclick=function(){
+            //value
+            var v=this.value; //무조건 on(value지정 시 value 값)
+            var check=this.checked;
+            // alert(v+","+check);
+            
+            if(check)   // check==true 생략
+                document.querySelector(".d").style.fontWeight="bold";
+            else
+                document.querySelector(".d").style.fontWeight="normal";
+            
+        }
+
+        document.getElementById("chk2").onclick=function(){
+            var check=this.checked;
+
+            if(check)
+                document.querySelector(".d").style.textDecoration="underline";
+                // text-decoration 인데, - 하이픈은 대문자로 연결하면됨 textDecoration
+            else
+                document.querySelector(".d").style.textDecoration="none";
+
+        }
+
+        //5번 이벤트-radio
+        //같은 name이 여러개이므로 배열타입으로 요소값이 얻어진다
+        var tradio=document.getElementsByName("tcolor");
+        for(var i=0;i<tradio.length;i++){
+            tradio[i].onclick=function(){
+                //선택한 radio의 value값을 읽는다
+                var v=this.value;
+                //.e에 적용
+                document.querySelector(".e").style.color=v;
+            }
+        }
+
+
+    </script>
+
+
+</body>
+</html>

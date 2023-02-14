@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Edu+VIC+WA+NT+Beginner:wght@600&family=Gamja+Flower&family=Jua&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+    
+    <!--외부 CSS파일 가져오기-->    <!-- <style> 에서 직접줘도 되지만 이렇게 불러와도 됨 -->
+    <link rel="stylesheet" href="../style.css">
+    <style>
+    
+    </style>
+    
+    <script>        // 스크립트는 위에있던 아래(body)에 있던 둘 다 먹힘
+
+        function hello(){
+            //alert("hello")
+            var ans=confirm("정말 삭제하시겠습니까?")
+            console.log(ans); // 크롬 > 검사 > console 에서 확인하기, 반환타입(true / false)
+            if(ans)
+                alert("데이터를 삭제했습니다!!");
+            else
+                alert("삭제작업을 취소했습니다!");
+        }
+
+        // 처음 로드 시 호출되는 이벤트
+        window.onload=function(){
+        
+        // 각종 이벤트는 이 안에서 코딩
+        // 버튼3 이벤트
+        var b3=document.getElementById("btn3");
+        b3.onclick=function(){
+            var name=prompt("당신의 이름은?","송혜교");    // prompt : 문자열을 입력받는것
+            if(name==null)
+                alert("취소버튼을 눌렀네요!!")
+            else
+                alert("내 이름은 "+name+"입니다");
+
+        }       // 이벤트의 경우 위쪽 script에 작성하려면 window.onload 해야하고
+                // 아래쪽 body안에서 script에 작성하면 그냥 됨
+
+        
+        }
+
+
+
+    </script>
+
+</head>
+<body>
+    <button type="button" class="btn btn-green"
+    onclick="alert('안녕하세요')">alert</button>
+
+    <input type="button" value="confirm" class="btn btn-pink"
+    onclick="hello()">
+
+    <button type="button" class="btn btn-black" id="btn3">promptttt</button>
+
+
+    <script>
+        
+    </script>
+
+</body>
+</html>

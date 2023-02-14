@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        div.container {
+            margin-top: 50px;
+            margin-left: 200px;
+        }
+
+        div.result {
+            width: 400px;
+            height: 300px;
+            margin-bottom: 10px;
+            margin-top: 10px;
+            border: 2px solid gray;
+            padding: 10px 10px;
+        }
+
+        div.largenum {
+            font-family: 'Gamja Flower';
+            font-size: 70px;
+            color: red;
+            font-weight: bold;
+
+            position: relative;
+            left: 500px;
+            top: -400px;
+        }
+
+        #photo {
+            position: relative;
+            left: 500px;
+            top: -330px;
+        }
+
+        #btnstart {
+            margin-left: 150px;
+        }
+    </style>
+    <script>
+        var count;
+        var rnd;
+        var mysu;
+        var photo, result, largenum;
+        //onload 안에서도 사용하기위해 바깥에 선언
+
+        window.onload = function () {
+            //각종 요소값들 얻기
+            photo = document.getElementById("photo");
+            largenum = document.querySelector("div.largenum");
+            result = document.querySelector("div.result");
+            mysu = document.getElementById("txtsu");
+
+            init_random();//난수발생및 초기화
+
+            //숫자입력 이벤트 (keyup)
+            //숫자가 아닌것이 입력이되었을경우 '숫자로만 입력해주세요' 경고후 종료
+            //입력자체를 안했을경우 '숫자를 입력후 엔터를 눌러주세요' 경고후 종료
+            //입력시 largenum 에 바로바로 출력
+            mysu.onkeyup = function (e) {
+
+                if (e.keyCode == 13) {
+                    checknum();
+                }//if
+
+                largenum.innerHTML = this.value;
+
+            }
+
+            //ok 버튼 이벤트
+            document.getElementById("btnok").onclick = function () {
+                checknum();
+            }
+
+            //다시시작 버튼을 누르면 init_random() 함수 호출
+            document.getElementById("btnstart").onclick = function () {
+                init_random();
+            }
+        }//onload
+
+        function init_random() {
+
+            //1~100 난수 발생
+            rnd = parseInt(Math.random() * 100) + 1;
+            //각종 변수 초기화
+            count = 0;
+            //이미지 안보이게
+            photo.style.visibility = "hidden";
+            //결과창의 메세지들 지우기
+            result.innerHTML = "";
+            //큰숫자 지우기
+            largenum.innerHTML = "";
+
+            //입력값 지우고 포커스 주기
+            mysu.value="";
+            mysu.focus();   //포커스 주는 함수 매번 숫자를 지울 필요없음
+        }
+
+        function checknum() {
+            var v = mysu.value;
+            if (v == '') {
+                alert('숫자를 입력후 엔터를 눌러주세요');
+                return;
+            }
+
+            if (isNaN(v)) {//true면 문자가 섞여있다는뜻
+                alert("숫자로만 입력해주세요");
+                return;
+            }
+
+            //비교
+            count++; //1부터 출력
+            if(v>rnd)
+                result.innerHTML+=count+"회:"+v+"보다 작습니다<br>";
+            else if(v<rnd)
+                result.innerHTML+=count+"회:"+v+"보다 큽니다<br>";
+            else{
+                result.innerHTML+=count+"회:짝짝짝!! 정답입니다. 추카추카!!<br>";
+                photo.style.visibility="visible";
+            }
+
+            //입력값 지우고 포커스 주기
+            mysu.value="";
+            mysu.focus();   //포커스 주는 함수 매번 숫자를 지울 필요없음
+
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <h2>숫자 알아맞추기 게임</h2>
+        <b>입력후 엔터 : </b>
+        <input type="text" id="txtsu" style="width:60px;" autofocus>
+
+        <button type="button" id="btnok">Ok</button>
+
+        <div class="result"></div>
+        <button type="button" id="btnstart" class="btn btn-pink">다시 시작</button>
+        <div class="largenum"></div>
+        <img src="../미야자키/19.png" id="photo">
+    </div>
+</body>
+
+</html>

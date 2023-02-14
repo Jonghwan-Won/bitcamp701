@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        div.input{
+            margin-left: 250px;
+            margin-top: 50px;
+            font-size: 30px;
+        }
+        #txt1{
+            font-size: 25px;
+        }
+
+        div.fsize{
+            margin-left: 250px;
+            margin-top: 10px;
+            font-size: 30px;
+        }
+        div.bgc{
+            margin-left: 250px;
+            margin-top: 10px;
+            font-size: 30px;
+        }
+
+        div.fontf{
+            margin-left: 250px;
+            margin-top: 10px;
+            font-size: 30px;
+        }
+
+
+        div.container{
+            width: 630px;
+            height: 100px;
+            background-color: gray;
+            margin-left: 250px;
+            margin-top: 50px;
+            border-radius: 100px;
+            font-size: 35px;
+            text-align: center;
+            line-height: 100px;
+            border : 1px solid;
+            
+        }
+
+    </style>
+
+<!-- 체크박스 테두리 groove 5px // 풀면 기본 1px solid -->
+
+</head>
+<body>
+    
+    <div class="input">입력 후 엔터
+    <input type="text" id="txt1" placeholder="값을 입력하세요">
+    <input type="checkbox" id="chk1"> 테두리
+    </div>
+
+    <div class="fsize"> 글자 크기 
+        <label><input type="radio" value="10px" name="fs"> 10</label>
+        <label><input type="radio" value="20px" name="fs"> 20</label>
+        <label><input type="radio" value="30px" name="fs"> 30</label>
+        <label><input type="radio" value="35px" name="fs" checked> 35</label>
+    </div>
+
+    <div class="bgc"> 
+        배경 색상 <input type="color" value="#ccffff" id="bgcolor">
+        글자 색상<input type="color" value="#000000" id="ftcolor">
+    </div>
+
+    <div class="fontf"> 글꼴 선택
+        <label><input type="radio" value="Jua" name="ff" checked> Jua</label> <!-- Jua -->
+        <label><input type="radio" value="Nanum Pen Script" name="ff"> Nanum Pen</label> <!-- Nanum Pen Script -->
+        <label><input type="radio" value="Gamja Flower" name="ff"> Gamja Flower</label> <!-- Gamja Flower -->
+    </div>
+
+
+
+    <div class="container"> 자바스크립트 </div>
+
+    
+    <script>
+        //입력받은 값 출력
+        document.getElementById("txt1").onkeyup=function(e){
+            var v=this.value;
+            //엔터 키 입력
+            if(e.keyCode==13)
+                document.querySelector(".container").innerHTML=v;
+        }
+
+        //checkbox 테두리 설정
+        document.getElementById("chk1").onclick=function(){
+            //value
+            var v=this.checked;
+
+            if(v)
+                document.querySelector(".container").style.border="5px groove";
+            else
+                document.querySelector(".container").style.border="1px solid";
+        }
+
+        //글자 크기 설정
+        var tradio=document.getElementsByName("fs");
+        for(var i=0;i<tradio.length;i++){
+            tradio[i].onclick=function(){
+                //선택한 radio의 value값을 읽는다
+                var v=this.value;
+                //.container에 적용
+                document.querySelector(".container").style.fontSize=v;
+            }
+        }
+        
+        //배경 색상 설정
+        document.getElementById("bgcolor").onchange=function(){
+            //선택한 색상
+            var selcolor=this.value;
+            //색 적용
+            document.querySelector(".container").style.backgroundColor=selcolor;
+        }
+
+        //글자 색상 설정
+        document.getElementById("ftcolor").onchange=function(){
+            //선택한 색상
+            var selcolor=this.value;
+            //색 적용
+            document.querySelector(".container").style.color=selcolor;
+        }
+
+        //글꼴 선택 설정
+        var tradio=document.getElementsByName("ff");
+        for(var i=0;i<tradio.length;i++){
+            tradio[i].onclick=function(){
+                //선택한 radio의 value값을 읽는다
+                var v=this.value;
+                //.container에 적용
+                document.querySelector(".container").style.fontFamily=v;
+            }
+        }
+    </script>
+
+
+</body>
+</html>

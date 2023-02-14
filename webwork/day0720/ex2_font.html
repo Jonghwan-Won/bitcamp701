@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Dokdo&family=Gamja+Flower&family=Ibarra+Real+Nova:ital,wght@1,500&family=Jua&display=swap" rel="stylesheet">
+
+    <style>
+        body *{     
+            font-size: 2rem;    /* body 태그 기준으로 2배 */
+        }
+
+        .kora{
+            font-family: 'Gamja Flower';
+            color: magenta;
+            /* rgba(r,g,b,투명도0~1) */
+            background-color: rgba(255, 100, 255, 0.2) 
+        }
+
+        .korb{
+            font-family: 'Jua';
+            border: 2px solid gray;
+            width: 500px;
+            height: 150px;
+            text-align: center; /* 텍스트 방향 : 가로방향으로 가운데*/
+            line-height: 150px; /* 한줄 출력일때는 height랑 line height를 같은 값으로 지정하면 세로방향 가운데로 온다 */
+        }
+
+        .korc{
+            font-family: 'Dokdo';    /* 이건 적용안됨... */
+            width: 600px;
+            height: 100px;
+            border: 5px double orange;
+            margin-top: 20px; /* 태그 바깥쪽 여백 : "날씨가 너무 더워요" 테두리 위쪽 공백 */
+            
+            /* 태그 안쪽 여백 : "날씨가 너무 더워요" 문장의 앞쪽, 위쪽 공백 */
+            /* padding-left: 50px; 
+            padding-top: 20px; */
+            padding: 20px 50px;     /* 한번에 쓸 때는 top, left 순서*/
+        }
+
+        .enga{
+            font-family: 'Anton';
+            width: 600px;
+            height: 200px;
+            border: 5px inset gold;
+            background-color: rgba(170,251,199,0.2);
+            background-image: url('../미야자키/05.png');    /* 배경이미지 지정 */
+            background-size: 40px 60px; /* 이미지의 사이즈 조절 */
+            background-repeat: no-repeat; /* 반복안함, repeat-x : x방향 반복, repeat-y : y방향 반복 */
+            background-position: right bottom; /* 오른쪽 아래에 넣겠다 */
+        }
+
+        .engb{
+            font-family: 'Ibarra Real Nova';
+            width: 600px;
+            height: 200px;
+            border: 20px dotted pink;
+            /* background: url('bg.jpg') no-repeat center center; */
+            background: url('../미야자키/01.png');
+
+        }
+
+    </style>
+
+</head>
+<body>
+    
+    <span class="kora"> 오늘도 열심히 공부합시다!! </span><br>
+    <div class="korb"> 재미있는 HTML, CSS, Script!! </div>
+    <div class="korc"> 날씨가 너무 더워요!!</div>
+    <hr>
+    <div class="enga"> Have a Good Time!!!</div>
+    <div class="engb"> Bitcamp 701 Ban!!! </div>
+
+</body>
+</html>

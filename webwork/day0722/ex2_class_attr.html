@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Edu+VIC+WA+NT+Beginner:wght@600&family=Gamja+Flower&family=Jua&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+
+    <style>
+        .divA{
+           width: 300px; 
+           height: 300px;
+           border: 10px groove gold;
+           background-color: orange;
+           margin: 30px 50px;
+        }
+
+        .divB{
+           width: 400px; 
+           height: 400px;
+           border: 10px double green;
+           background-color: aquamarine;
+           border-radius: 30px 40px 50px 30px;
+           margin: 30px 50px;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <button type="button" class="btn btn-green" id="btn1">스타일A적용</button>
+    <button type="button" class="btn btn-green" id="btn2">스타일B적용</button>
+    <button type="button" class="btn btn-green" id="btn3">적용안함</button>
+
+    <div id="r">div 태그</div> <!-- 위치 확인 용도 -->
+
+    <script>
+        document.getElementById("btn1").onclick=function(){
+            //class 속성에 divA라는 style을 적용
+            document.getElementById("r").setAttribute("class","divA");
+
+         };
+        document.getElementById("btn2").onclick=function(){
+            document.getElementById("r").setAttribute("class","divB");
+         };
+        document.getElementById("btn3").onclick=function(){
+            document.getElementById("r").setAttribute("class","");
+         };
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="bit.data.dao.BoardDao">
+	
+	<!-- MaxNum을 구함 / 데이터가 없을때 max(num)은 null 이므로, null일때 0으로 나오도록 설정 -->
+	<select id="getMaxNum" resultType="int">
+		select ifnull(max(num),0) from reboard
+	</select>
+	
+	<!-- 검색안하면 전체개수, 검색하면(컬럼이나 단어가 넘어왔을때) 그것에 대한 개수 -->
+	<select id="getTotalCount" parameterType="Map" resultType="int">
+		select count(*) from reboard
+		
+		<if test="searchcolumn!=null and searchword!=null">
+			where ${searchcolumn} like concat('%',#{searchword},'%')
+			<!-- $는 컬럼으로 바인딩 , #은 값으로 바인딩 -->
+		</if>
+	</select>
+	
+	<!-- 전체 데이터 조회 + 데이터 페이징 처리 -->
+	<!-- 검색 조건이 없으면 where 부분은 제외되므로 전체조회하면서 order by -->
+	<!-- 검색 조건이 있으면 검색결과에 대해 조회하면서 order by -->
+	<select id="getPagingList" parameterType="Map" resultType="bdto">
+		select * from reboard
+		
+		<if test="searchcolumn!=null and searchword!=null">
+			where ${searchcolumn} like concat('%',#{searchword},'%')
+			<!-- $는 컬럼으로 바인딩 , #은 값으로 바인딩 -->
+		</if>
+		
+		<!-- 최신글이 위로 올라가므로 regroup은 내림차순 / 원글과 답글은 오름차순으로 정렬 -->
+		order by regroup desc, restep asc limit #{startnum},#{perpage}
+	</select>
+	
+	
+	<!-- readcount 와 likes는 최초에 0으로 insert -->
+	<!-- bdto로 값을 받아 바인딩처리하고, insert이므로 반환없이 끝남 -->
+	<insert id="insertBoard" parameterType="bdto">
+		insert into reboard values (null,#{id},#{name},#{subject},#{photo},#{content},
+		0,0,#{regroup},#{restep},#{relevel},now())
+	</insert>
+	
+	<!-- 답글 생길때 restep 숫자 올라가는것 처리 -->
+	<update id="updateRestep" parameterType="Map">
+		<!-- regroup이 같고, 새로생긴 restep 보다 기존 restep이 크다면 +1씩 증가시킨다 -->
+		update reboard set restep=restep+1 where regroup=#{regroup} and restep>#{restep}
+	</update>
+	
+	<!-- 조회수 증가 -->
+	<!-- num으로 받을거라서 parameterType 은 int -->
+	<update id="updateReadCount" parameterType="int">
+		update reboard set readcount=readcount+1 where num=#{num}
+	</update>
+	
+	<!-- num값으로 조회/검색 -->
+	<select id="selectByNum" parameterType="int" resultType="bdto">
+		select * from reboard where num=#{num}
+	</select>
+	
+	<!-- num에 해당하는 게시글 수정(update) -->
+	<update id="updateBoard" parameterType="bdto">
+		update reboard set subject=#{subject},content=#{content}
+		<!-- photo는 null이 아닐때만 수정가능하도록 -->
+		<if test="photo!=null">
+			,photo=#{photo}
+		</if>
+		
+		where num=#{num}
+	</update>
+	
+	<!-- num에 해당하는 게시글 삭제 -->
+	<delete id="deleteBoard" parameterType="int">
+		delete from reboard where num=#{num}
+	</delete>
+	
+	<!-- likes 좋아요 누르면 추천수 증가 -->
+	<!-- 해당 글에 대한 좋아요 증가이므로 parameterType은 num으로 -->
+	<update id="likesUpdate" parameterType="int">
+		update reboard set likes=likes+1 where num=#{num}
+	</update>
+	
+	
+	
+</mapper>

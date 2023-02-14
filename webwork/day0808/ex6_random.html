@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="../style.css">
+
+    <style>
+        #photo{
+            width: 400px;
+            height: 470px;
+            border: 10px groove gray;
+        }
+
+        .msg{
+            font-size: 27px;
+            font-family: 'Nanum Pen Script';
+            margin-left: 20px;
+            margin-top: 10px;
+
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            var p=document.getElementById("photo"); //변수 p로 photo의 src값을 변경하기 위함
+            var m=document.querySelector(".msg");
+            
+            //1초마다 연예인사진이 바뀌게 하기
+            //배열
+            var sarr=["재미있는 자바스크립트","오늘은 비가 오네요!","이번주는 덥고 습한날씨가 될듯.."];
+            var carr=["red","green","magenta","orange","blue","gray","black"];
+
+            setInterval(() => {
+                //1부터 20사이에 난수 발생 후 이미지 변경하기
+                var num=parseInt(Math.random()*20)+1;   //1부터 20까지 난수 발생
+                //이미지 변경
+                //p.setAttribute("src","../연예인사진/"+num+".jpg");
+                p.setAttribute("src",`../연예인사진/${num}.jpg`);    //es6에서 추가된 기능 (에크마)
+
+            }, 500);
+
+            setInterval(() => {
+                var sidx=parseInt(Math.random()*3); //0~2사이의 랜덤값
+                //글자색 랜덤
+                var cidx=parseInt(Math.random()*7); //0~6사이의 랜덤값
+                m.style.color=carr[cidx];
+                m.innerHTML=sarr[sidx];
+
+            }, 2000);
+        }
+    </script>
+</head>
+<body>
+    <img src="../연예인사진/15.jpg" id="photo">
+    <div class="msg">111</div>
+</body>
+</html>

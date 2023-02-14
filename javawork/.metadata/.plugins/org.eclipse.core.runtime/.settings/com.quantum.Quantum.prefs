@@ -1,0 +1,10 @@
+com.quantum.actions.BookmarkSelectionUtil.bookmark=aws_mysql
+com.quantum.log.QuantumLog.logLevel=info
+eclipse.preferences.version=1
+quantum.column.color=255,0,0
+quantum.dialogs.bookmarkwizard.path=C\:\\java0711\\mysql-connector-java-8.0.22.jar
+quantum.keyword.color=0,128,192
+quantum.numeric.color=192,192,192
+quantum.string.color=255,255,128
+quantum.text.color=192,192,192
+quantum.variable.color=192,192,192

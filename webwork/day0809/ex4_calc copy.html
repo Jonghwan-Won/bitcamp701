@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style.css">
+
+    <style>
+        button{
+            width: 80px;
+            height: 80px;
+            margin-top: 3px;
+            margin-left: 3px;
+            cursor: pointer;
+        }
+
+        button.bs1{
+            font-size: 20px;
+            color: blue;
+        }
+
+        button.bs2{
+            color: red;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        button.equal{
+            background-color: #e8b5e8;
+            color: red;
+        }
+
+        #txtresult{
+            width: 335px;
+            height: 70px;
+            border: 1px solid gray;
+            margin-bottom: 5px;
+            font-size: 30px;
+            text-align: right;
+            padding-right: 10px;
+        }
+    </style>
+
+    <script>
+        var bfirst=false;
+        var bdot=false;
+        var su1,su2,oper;
+
+        window.onload=function(){
+            
+        }
+    </script>
+
+</head>
+<body>
+    <div class="calc">
+        <!-- 숫자 num / 연산자 oper -->
+        <input type="text" disabled id="txtresult" value="0">
+        <br>
+        <button type="button" class="sign bs1" >+/-</button>
+        <button type="button" class="ce bs1">CE</button>
+        <button type="button" class="c bs1">C</button>
+        <button type="button" class="back bs1">Back</button>
+        <br>
+        <button type="button" class="num bs2">7</button>
+        <button type="button" class="num bs2">8</button>
+        <button type="button" class="num bs2">9</button>
+        <button type="button" class="oper bs3">÷</button>
+        <br>
+        <button type="button" class="num bs2">4</button>
+        <button type="button" class="num bs2">5</button>
+        <button type="button" class="num bs2">6</button>
+        <button type="button" class="oper bs3">X</button>
+        <br>
+        <button type="button" class="num bs2">1</button>
+        <button type="button" class="num bs2">2</button>
+        <button type="button" class="num bs2">3</button>
+        <button type="button" class="oper bs3">-</button>
+        <br>
+        <button type="button" class="num bs2">0</button>
+        <button type="button" class="dot bs1">.</button>
+        <button type="button" class="equal bs1">=</button>
+        <button type="button" class="oper bs3">+</button>
+
+
+    </div>
+</body>
+</html>

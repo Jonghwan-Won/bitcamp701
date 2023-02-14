@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=Edu+VIC+WA+NT+Beginner:wght@600&family=Gamja+Flower&family=Single+Day&family=Jua&family=Nanum+Pen+Script&display=swap"
+        rel="stylesheet">
+    <style>
+        body * {
+            font-family: 'Gamja Flower';
+
+        }
+
+        div.calview {
+            position: absolute;
+            left: 200px;
+            top: 50px;
+        }
+
+        div.calendar {
+            width: 600px;
+            border: 3px groove gray;
+            font-size: 22px;
+        }
+
+        tr.title {
+            background-color: darkseagreen;
+            color: white;
+            font-family: 'Jua';
+            border-bottom: 4px double green;
+        }
+    </style>
+
+    <script>
+        window.onload = function () {
+            // console.log(curYear);
+
+            // 처음에 현재 날짜로 달력 나오게 하기
+            write_calendar(curYear, curMonth); //write_calendar에 현재 년도와 날짜 보내기
+
+            //년도 변경 시 달력 출력하기
+            document.getElementById("selyear").onchange = function () {
+                var myyear = this.value; //선택 년도
+                var mymonth = document.getElementById("selmonth").value; //선택되어있는 값 가져오기
+
+                write_calendar(myyear, mymonth);
+            }
+            //월 변경 시 달력 출력하기
+            document.getElementById("selmonth").onchange = function () {
+                var myyear = document.getElementById("selyear").value; //선택되어있는 값 가져오기
+                var mymonth = this.value; //선택 월
+
+                write_calendar(myyear, mymonth);
+
+            }
+        }
+
+        function write_calendar(year, month) {
+            var s = document.querySelector(".calendar");
+
+            //달력을 그릴 년도와 월에 대한 date 얻기
+            var date = new Date(year, month - 1, 1);
+            //요일 숫자
+            var week = date.getDay(); //1일의 요일(0:일, 1:월, 2:화...6:토)
+            // console.log(week);
+            //해당 년월이 몇일까지 있는지 구하기
+            var endday = 0;
+            switch (parseInt(month)) {    //switch에서 문자열로 인식하기도 하고 안하기도해서 그냥 parseInt로 변환
+                case 2:
+                    if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0)
+                        endday = 29;
+                    else
+                        endday = 28;
+                    break;
+
+                case 4:
+                case 6:
+                case 9:
+                case 11:
+                    endday = 30; break;
+                default:
+                    endday = 31;
+            }
+
+
+            var t = "<table class='table table-bordered'>";
+            //달력 제목
+            t += "<tr class='title'>";
+            t += "<th>일</th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th><th>토</th>";
+            t += "</tr>";
+
+            //요일수만큼 빈 칸 그리기
+            for (var i = 1; i <= week; i++) {
+                t += "<td>&nbsp;</td>"
+            }
+
+            //1일부터 endday까지 출력
+            //이때 토요일까지 출력 후 tr 닫고 다시 열고..
+            for (var i = 1; i <= endday; i++) {
+                week++;
+                t += "<td>" + i + "</td>";
+                //토요일은 week가 7의 배수가 된다
+                if (week % 7 == 0) {
+                    t += "</tr><tr>"  //tr을 닫고 다시 열기
+                }
+            }
+            //마지막 날짜까지 출력 후 남은 칸 마저 그리기 (익월의 1일부터)
+            if (week % 7 == 0) {
+                t += "<tr>";  //나머지가 없으면 닫아서 마무리
+            } else {
+                //중간요일에서 빠져나온경우 나머지 날짜는 1부터 출력(회색)
+                var n = 1;
+                while (true) {
+                    week++;
+                    t += "<td style='color:lightgray;'>" + n++ + "</td>";
+
+                    if (week % 7 == 0) {
+                        t += "</tr>";
+                        break;
+                    }
+                }
+            }
+        
+
+        t += "</table>";
+
+        s.innerHTML = t;
+    }
+
+    </script>
+
+
+</head>
+
+<body>
+    <div class="calview">
+        <h4 class="alert alert-warning" style="width: 600px;">JavaScript 달력</h4>
+
+        <div class="input-group">
+            <!-- 년 월 부분을 div로 묶어줌 -->
+
+            <select class="form-control" style="width: 100px;" id="selyear">
+                <!-- 반복되지않는건 미리 만들어놓기 -->
+                <script>
+                    var curDate = new Date();//현재 날짜와 시간
+                    var curYear = curDate.getFullYear();//현재년도
+                    var curMonth = curDate.getMonth() + 1;//현재월(0~11)+1
+
+                    for (var y = curYear; y >= 1950; y--) {    //옵션만 넣어주면 됨
+                        document.write("<option>" + y + "</option>");
+                    }
+                </script>
+
+            </select>
+            년&nbsp;&nbsp;&nbsp;
+
+
+            <select class="form-control" style="width: 100px;" id="selmonth">
+                <!-- 반복되지않는건 미리 만들어놓기 -->
+                <script>
+                    for (var i = 1; i <= 12; i++) {
+                        if (i == curMonth)
+                            document.write("<option selected>" + i + "</option>"); //선택되게하는 selected
+                        else
+                            document.write("<option>" + i + "</option>");
+                    }
+                </script>
+
+            </select>
+            월
+        </div>
+        <!-- group -->
+
+        <br><br>
+
+        <div class="calendar">111</div>
+
+    </div>
+
+</body>
+
+</html>

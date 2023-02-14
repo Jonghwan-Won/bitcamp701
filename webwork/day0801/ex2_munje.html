@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h2>문제 2 : 음식사진 1.jpg 를 img 태그로 나타낸후 id를 img1 으로 주고 그 아이디로 이벤트 추가하기 </h2>
+    <!-- 사진에 마우스를 올리면 3.jpg로 바뀌고 클릭하면 5.jpg 로 바뀌며 마우스를 벗어나면 다시 원래 사진으로 변경되도록 이벤트주기 -->
+    <img src="../음식사진/1.jpg" id="img1">
+    <script>
+        
+        var img1=document.getElementById("img1");
+        img1.onmouseover=function()
+        {
+            this.setAttribute("src","../음식사진/3.jpg");
+        }
+
+        img1.onclick=function()
+        {
+            this.setAttribute("src","../음식사진/5.jpg");
+        }
+
+        img1.onmouseout=function()
+        {
+            this.setAttribute("src","../음식사진/1.jpg");
+        }
+    </script>
+
+
+</body>
+</html>

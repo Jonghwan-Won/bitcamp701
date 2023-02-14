@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Dokdo&family=Gamja+Flower&family=Ibarra+Real+Nova:ital,wght@1,500&family=Jua&display=swap" rel="stylesheet">
+
+    <style>
+        div.a{
+            font-size: 2em;
+            font-family: 'Jua';
+        }
+        
+        div.b>figure{
+            float: left; /* 가로방향 정렬 */
+        }
+
+        div.b>figure>img{
+            border: 1px solid black;
+            border-radius: 30px 60px 100px 20px; /* 왼쪽 상단 모서리부터 시계방향 */
+        }
+
+        div.b>figure>figcaption>b
+        {
+            font-size: 25px;
+            margin-left: 20px;
+            font-family: 'Gamja Flower';
+        }
+
+        h3.c{
+            clear: both;    /* float:left 속성을 해제 */
+        }
+
+        div.d{
+            width: 700px;
+            height: 300px;
+            border: 2px solid gray;
+        }
+
+        div.d{
+            display: flex;
+            /* row : 가로방향 (왼쪽정렬)
+               row-reverse : 가로방향 (우측정렬)
+               column : 세로방향으로 정렬
+            */
+            flex-direction: row;
+        }
+
+        div.d img
+        {
+            border: 2px solid greenyellow;
+            box-shadow: 15px 15px 15px gray;
+            border-radius: 10px;
+        }
+        
+        div.d b
+        {
+            margin-left: 50px;
+            font-size: 30px;
+            font-family: 'Jua';
+            margin-top: 10px;
+            color: mediumseagreen;
+            text-shadow: 3px 3px 3px lightsalmon;
+        }
+
+    </style>
+</head>
+
+<body>
+    <img src="../음식사진/1.jpg" width="200" border="10" 
+    align="left" hspace="20">
+    <div class="a">java<br>oracle<br>html<br>css</div>
+    <hr>
+    <div class="b">
+        <figure>
+            <img src="../음식사진/12.jpg" width="150">
+            <figcaption><b>순두부라면</b></figcaption>
+        </figure>
+
+        <figure>
+            <img src="../음식사진/4.jpg" width="150">
+            <figcaption><b>카레라이스</b></figcaption>
+        </figure>
+
+        <figure>
+            <img src="../음식사진/6.jpg" width="150">
+            <figcaption><b>계란찜</b></figcaption>
+        </figure>
+
+        <h3 class="c"> 안녕하세요 </h3>
+    </div>
+
+    <div class="d"> 
+        <figure>
+            <img src="../연예인사진/12.jpg" width="150">
+            <figcaption><b>박보영</b></figcaption>
+        </figure>
+
+        <figure>
+            <img src="../연예인사진/6.jpg" width="150">
+            <figcaption><b>한예슬</b></figcaption>
+        </figure>
+
+        <figure>
+            <img src="../연예인사진/15.jpg" width="150">
+            <figcaption><b>설현</b></figcaption>
+        </figure>
+    </div>
+
+
+</body>
+</html>

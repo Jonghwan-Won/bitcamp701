@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="ImportExportAction">
+		<item key="ImportExportPage.STORE_SELECTED_IMPORT_WIZARD_ID" value="org.eclipse.ui.wizards.import.ExternalProject"/>
+		<item key="ImportExportPage.STORE_SELECTED_EXPORT_WIZARD_ID" value="org.eclipse.ui.wizards.export.ZipFile"/>
+		<list key="ImportExportPage.STORE_EXPANDED_IMPORT_CATEGORIES">
+			<item value="org.eclipse.ui.Basic"/>
+		</list>
+		<list key="ImportExportPage.STORE_EXPANDED_EXPORT_CATEGORIES">
+			<item value="org.eclipse.ui.Basic"/>
+		</list>
+	</section>
+	<section name="ZipFileExportWizard">
+		<item key="WizardZipFileResourceExportPage1.STORE_CREATE_STRUCTURE_ID" value="true"/>
+		<item key="WizardZipFileResourceExportPage1.STORE_COMPRESS_CONTENTS_ID" value="true"/>
+		<list key="WizardZipFileResourceExportPage1.STORE_DESTINATION_NAMES_ID">
+			<item value="\\10.100.1.2\0. 개인 자료\6. 개발 관련\백업\2022-12-29 이클립스 프로젝트.zip"/>
+			<item value="C:\Users\user\Downloads\Full Backup_0908.zip"/>
+			<item value="\\wjhwan.synology.me@SSL@9854\DavWWWRoot\개발_공유폴더\비트캠프_강남본원\정규수업\백업\종환 백업_Archive\0906 백업.zip"/>
+			<item value="\\wjhwan.synology.me@SSL@9854\DavWWWRoot\개발_공유폴더\비트캠프_강남본원\정규수업\백업\종환 백업_Archive\0805 백업.zip"/>
+			<item value="\\wjhwan.synology.me@SSL@9854\DavWWWRoot\개발_공유폴더\비트캠프_강남본원\정규수업\eclipse\백업_Archive\원종환_0726 백업.zip"/>
+			<item value="\\wjhwan.synology.me@SSL@9854\DavWWWRoot\개발_공유폴더\비트캠프_강남본원\정규수업\0718 백업.zip"/>
+		</list>
+	</section>
+	<section name="NewWizardAction">
+		<item key="NewWizardSelectionPage.STORE_SELECTED_ID" value="org.eclipse.wst.xml.ui.internal.wizards.NewXMLWizard"/>
+		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
+			<item value="org.eclipse.emf.codegen.ecore.ui.wizardCategory"/>
+			<item value="org.eclipse.jst.ws.ui.new"/>
+			<item value="org.eclipse.wst.XMLCategory"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.internal.QuickAccess">
+		<item key="org.eclipse.ui.internal.quickaccess.QuickAccessDialogDIALOG_WIDTH" value="600"/>
+		<item key="org.eclipse.ui.internal.quickaccess.QuickAccessDialogDIALOG_HEIGHT" value="844"/>
+		<item key="org.eclipse.ui.internal.quickaccess.QuickAccessDialogDIALOG_USE_PERSISTED_SIZE" value="true"/>
+		<item key="org.eclipse.ui.internal.quickaccess.QuickAccessDialogDIALOG_USE_PERSISTED_LOCATION" value="false"/>
+		<list key="orderedElements">
+		</list>
+		<list key="orderedProviders">
+		</list>
+		<list key="textEntries">
+		</list>
+		<list key="textArray">
+		</list>
+	</section>
+	<section name="org.eclipse.ui.preferences.keysPreferencePage">
+	</section>
+	<section name="InstallationDialogSettings">
+		<item key="DIALOG_X_ORIGIN" value="170"/>
+		<item key="DIALOG_Y_ORIGIN" value="-212"/>
+		<item key="DIALOG_WIDTH" value="932"/>
+		<item key="DIALOG_HEIGHT" value="1211"/>
+		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-18|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
+	</section>
+	<section name="PreferencesExportWizard">
+		<item key="" value="C:\Users\user\Downloads\eclipse 환경설정.epf"/>
+		<item key="WizardPreferencesExportPage1.STORE_OVERWRITE_EXISTING_FILES_ID" value="false"/>
+		<item key="WizardPreferencesExportPage1.EXPORT_ALL_PREFERENCES_ID" value="true"/>
+		<item key="" value="\\wjhwan.synology.me@SSL@9854\DavWWWRoot\0. 개인 자료\6. 개발 관련\백업\2022-12-29 이클립스 환경설정.epf"/>
+		<list key="WizardPreferencesExportPage1.STORE_DESTINATION_NAMES_ID">
+			<item value="\\wjhwan.synology.me@SSL@9854\DavWWWRoot\0. 개인 자료\6. 개발 관련\백업\2022-12-29 이클립스 환경설정.epf"/>
+			<item value="C:\Users\user\Downloads\eclipse 환경설정.epf"/>
+		</list>
+	</section>
+</section>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="../style.css">
+
+    <style>
+        #photo{
+            position: absolute;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            var photo=document.getElementById("photo");
+            var x=30;
+            var y=200;
+            var interval;
+
+            //초기 이미지 위치 지정
+            photo.style.top=y+"px";
+            photo.style.left=x+"px";
+
+            console.log("width="+window.innerWidth);    //테두리 두께를 제외한 너비
+            //버튼 이벤트
+            document.getElementById("btngo").onclick=function(){
+                interval=setInterval(()=>{
+                    x+=20;
+                    y+=20;
+                    photo.style.left=x+"px";
+                    photo.style.top=y+"px";
+
+                    if(y>=window.innerHeight){
+                        x=30;
+                        y=200;
+                    }
+                },100);    //0.1초마다 호출
+            }
+
+            document.getElementById("btnstop").onclick=function(){
+                clearInterval(interval);    //타이머 스톱
+            }
+
+        }
+    </script>
+
+</head>
+<body>
+    <h2>setInterval 연습</h2>
+    <br>
+    <button type="button" class="btn btn-pink" id="btngo"> Go!! </button>
+    <button type="button" class="btn btn-pink" id="btnstop"> Stop!! </button>
+    <br>
+    <br>
+    <img src="../미야자키/06.png" id="photo">
+
+
+
+</body>
+</html>

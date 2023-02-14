@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=Edu+VIC+WA+NT+Beginner:wght@600&family=Gamja+Flower&family=Single+Day&family=Jua&family=Nanum+Pen+Script&display=swap"
+        rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+
+    <style>
+        b.view{
+            cursor: pointer;
+        }
+
+        div.mytooltip{
+            line-height: 1.5;   /* -> 1.5배 (1이 기본값) */
+            color:white;
+            width: 200px;
+            background-color: #f90;
+            border: 2px solid white;
+            padding: 10px;
+            font-size: 12px;
+            border-radius: 30px;
+
+            position: absolute; /* 절대 좌표 */
+            opacity: 0.8;   /* 투명도 */
+            display: none;
+        }
+        
+    </style>
+
+    <script>
+        $(function(){
+            $("a").bind({
+                mouseover:function(){
+                    $("div.mytooltip").fadeIn();
+                },
+
+                mouseout:function(){
+                    $("div.mytooltip").fadeOut();
+                },
+
+                mousemove:function(e){
+                    $("div.mytooltip").css({
+                        left:e.pageX+"px",
+                        top:e.pageY+"px"
+                    });
+                }
+            });
+
+
+            $("b.view").bind({
+                mouseover:function(){
+                    $("div.mytooltip").fadeIn();
+                },
+
+                mouseout:function(){
+                    $("div.mytooltip").fadeOut();
+                },
+
+                mousemove:function(e){
+                    $("div.mytooltip").css({
+                        left: e.pageX+"px",
+                        top: e.pageY+"px",
+                        color: 'magenta'
+                    });
+
+                    //b태그 안에 글자를 툴팁에 넣기(작은 이미지와 함께)
+                    var s="<img src='../미야자키/02.png' width='60'>";
+                    s+="<b>"+$(this).text()+"</b>";
+
+                    $("div.mytooltip").html(s);
+                }
+            });
+
+
+
+
+
+        });
+    </script>
+</head>
+<body>
+    <h3>tooltip 링크 부분에 마우스를 올려보세요</h3>
+    <a style="font-size: 20px;">Tooltip</a>
+    <br>
+    
+    <pre>
+        <!-- pre : 보이는 그대로 출력 (엔터, 공백 등) -->
+        안녕하세요
+        반가워요
+        오늘은 목요일입니다
+
+        [기사 1]
+        대형마트가 반값치킨에 이어 일반 프랜차이즈 치킨의 4분의 1 가격인 5000원대 치킨까지 내놓는 것은 최근 대형마트 치킨의 인기가 높기 때문이다. 최근 홈플러스가 당당치킨을 판매하면서 특정 시간에 1+1행사를 하자
+        마트에 사람들이 줄을 서는 등 모객 효과가 나타나자 다른 대형마트들도 <b class="view">치킨 경쟁</b>에 뛰어들었다. 중고 거래 사이트에 대형마트 치킨을 판매하는 글이 올라오고, 유튜버들이 대형마트 치킨에 대한 긍정적인 소감을 앞다퉈
+        올리며 대형마트 치킨이 하나의 유행으로 자리 잡은 것도 한 몫한다.
+
+        이미지 기자 image0717@chosun.com
+
+        [기사 2]
+        6월 말 <b class="view">국가 채무</b>(중앙정부 채무 잔액)는 전달 말보다 11조2000억원 감소한 1007조5000억원이다. 6월 상환한 국고채가 26조1000억원으로 발행한 국고채 14조6000억원을 웃돌았기 때문이다. 올해 말
+        국가채무는 1037조7000억원이 될 것으로 전망된다.
+        작년 말과 비교하면 국고채 잔액은 66조7000억원, 주택채 잔액은 1조원, 외국환평형기금채권(외평채) 잔액은 8000억원 각각 증가했다.
+        
+        신현보 한경닷컴 기자 greaterfool@hankyung.com
+
+        [기사 3]
+        여의도 초고층 단지 탄력…공작아파트, 49층 탈바꿈
+        강동역 역세권 재개발 사업도 <b class="view">정비 구역</b> 지정을 마쳤다. '역세권 활성화사업'은 입지 요건을 만족하는 역세권 토지의 용도지역을 상향해 용적률을 높여주고, 증가한 용적률의 50%를 지역에 필요한 정비기반시설,
+        생활서비스시설(체육시설 등)과 공공임대주택으로 확충하는 사업이다.
+        서울시는 현재 23개 사업지를 대상으로 이 사업을 추진하고 있다. 강동역 역세권의 경우 지난 2020년에 선정된 1차 확대 사업 대상지 8개소 중 하나다.
+        
+        나원식 (setisoul@bizwatch.co.kr)
+
+
+    </pre>
+
+    <div class="mytooltip">
+        Java<br>
+        HTML5<br>
+        CSS3<br>
+        ES6<br>
+        Oracle
+    </div>
+</body>
+</html>

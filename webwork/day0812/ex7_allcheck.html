@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=Edu+VIC+WA+NT+Beginner:wght@600&family=Gamja+Flower&family=Single+Day&family=Jua&family=Nanum+Pen+Script&display=swap"
+        rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+
+    <style>
+        body * {
+            font-size: 2rem;
+            /* body *{로 줄때는 em이 아닌 rem을 주는데 */
+            /* em은 상위태그의 배수여서 그 상위가 있으면 계속 배가됨 */
+            /* rem은 최상위태그 에 대한 배수임 */
+            font-family: 'Jua';
+        }
+
+        input[type=radio],
+        input[type=checkbox] {
+            -webkit-transform: scale(2);
+            /* Safari and Chrome */
+        }
+    </style>
+
+</head>
+
+<body>
+    <div style="margin: 100px;">
+        <input type="checkbox" id="chk1">&nbsp;버튼클릭
+        &nbsp;&nbsp;&nbsp;
+        <button type="button" class="btn-outline-warning" id="btn1">체크/해제</button>
+        <br><br>
+        <script>
+            $("#btn1").click(function(){
+                //현재 체크상태를 체크해서 그 반대로 체크값을 준다
+                //prop("속성",값) : 주로 속성 중 true, false 로 되는것들은 prop으로 변경.. attr도 되지만 안될때도있음
+                $("#chk1").prop("checked",!$("#chk1").is(":checked"));
+            });
+        </script>
+
+        <hr>
+
+        <label>
+            <input type="checkbox" class="del" num="1">&nbsp;자유글 1번
+        </label>
+        <label>
+            <input type="checkbox" class="del" num="2">&nbsp;자유글 2번
+        </label>
+        <label>
+            <input type="checkbox" class="del" num="3">&nbsp;자유글 3번
+        </label>
+        <label>
+            <input type="checkbox" class="del" num="4">&nbsp;자유글 4번
+        </label>
+        <label>
+            <input type="checkbox" class="del" num="5">&nbsp;자유글 5번
+        </label>
+        <br><br>
+        <button type="button" class="btn btn-outline-info btn-lg"
+        style="width:200px;" id="btn2">전체선택/해제</button>
+
+        <button type="button" class="btn btn-outline-danger btn-lg"
+        style="width:200px;" id="btn3">선택글 삭제</button>
+
+        <script>
+            $("#btn2").click(function(){
+                // $(".del").prop("checked",!$(".del:eq(0)").is(":checked"));   //기준이 del클래스 0번째 체크여부
+                $(".del").prop("checked",!$(".del").is(":checked"));            //기준이 del클래스 전체에서 체크여부
+
+                // del클래스의 checked속성 변경 -> del클래스의 0번째 checked 속성을 기준으로 잡고
+                // 체크가 되어있으면 true 이므로 del클래스의 checked 값은 false로 바뀜
+                // 체크가 안되어있으면 false 이므로 del클래스의 checked 값은 true로 바뀜
+
+                // 체크가 아닌 버튼형태라 기준값을 잡기 애매한데, check(전체선택) 이였으면 더 쉬움
+            });
+
+            $("#btn3").click(function(){
+                var s="";
+                //input 태그에서 del클래스 중 체크된 길이를 구한다
+                var len=$("input[class='del']:checked").length;
+                
+                //input 태그의 del클래스에서 체크된것(=this)만 그 갯수만큼 반복문(each)으로 돌려서 num값을 가져온다
+
+                //방법 1 (attr로 num 속성값 추출)
+                $("input[class='del']:checked").each(function(){
+                    s+="["+$(this).attr("num")+"]";
+                    //게시글 번호를 추출하기위해 num값을 부여했고, attr로 반환했지만
+                    
+                    //실제 체크박스 삭제
+                    //parent():부모태그, 여기서는 label 태그
+                    // $(this).parent().remove();  //parent를 안쓰면 체크박스만 사라짐 (del class가 input태그여서)
+
+                });
+
+                // // 방법 2 (idx 활용)
+                // $("input[class='del']:checked").each(function(idx){
+                //     //num이 없었다면 function(idx)->인덱스번호추출을 활용하면 됨
+                //     s+="["+(idx+1)+"]"
+
+                //     //실제 체크박스 삭제
+                //     //parent():부모태그, 여기서는 label 태그
+                //     // $(this).parent().remove();  //parent를 안쓰면 체크박스만 사라짐 (del class가 input태그여서)
+                // });
+
+
+                
+                if(len==0)
+                    $("h1").html("<b>선택한 게시글이 없습니다</b>");
+                else
+                    $("h1").html("<b>"+s+"번 글 삭제함</b>");
+
+            });
+        </script>
+
+        <h1></h1>
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Edu+VIC+WA+NT+Beginner:wght@600&family=
+                Gamja+Flower&family=Single+Day&family=Jua&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <style>
+        body *{
+            font-size: 2rem;
+            /* body *{로 줄때는 em이 아닌 rem을 주는데 */
+            /* em은 상위태그의 배수 */
+            /* rem은 최상위태그 에 대한 배수임 */
+            font-family: 'Jua';
+        }
+
+        input[type=radio] ,input[type=checkbox]{
+            -webkit-transform: scale(2);
+            /* Safari and Chrome */
+        }
+    </style>
+
+    <script>
+        $(function(){
+          $("button").click(function(){
+            var s="";
+            s+="내 고향 : "+$("input[name='gohyang']:checked").val()+"<br>"; //checked 된 value 값
+
+            var len=$("input[name='hobby']:checked").length;    //조건에 맞을때만 불러올거라서 변수에 담기
+            s+="내 취미는 "+len+"개<br>";
+
+            if(len>0){  //취미를 선택했을때
+                s+="취미 : ";
+                // $("input[name='hobby']").each(function(idx){
+                //     if($(this).is(":checked")){
+                //         s+="["+$(this).val()+"]&nbsp;";
+                //     }
+                // });
+                
+                //체크된것만 반복
+                $("input[name='hobby']:checked").each(function(idx){
+                    s+="["+$(this).val()+"]&nbsp;";
+                });
+                s+="<br>";
+            }
+
+
+            $("#result").html(s);
+          });
+        });
+    </script>
+
+</head>
+<body>
+    <div style="margin:30px;">
+        
+    <h2>당신의 고향은?</h2>
+    <label><input type="radio" name="gohyang" value="서울" checked>&nbsp;&nbsp; 서울 </label>
+    &nbsp;&nbsp;
+    <label><input type="radio" name="gohyang" value="제주도">&nbsp;&nbsp; 제주도 </label>
+    &nbsp;&nbsp;
+    <label><input type="radio" name="gohyang" value="부산">&nbsp;&nbsp; 부산 </label>
+    &nbsp;&nbsp;
+    <label><input type="radio" name="gohyang" value="경기도">&nbsp;&nbsp; 경기도 </label>
+    <br><br>
+
+    <h2> 당신의 취미는? </h2>
+    <label><input type="checkbox" name="hobby" value="낚시">&nbsp;&nbsp; 낚시 </label>
+    &nbsp;&nbsp;
+    <label><input type="checkbox" name="hobby" value="게임">&nbsp;&nbsp; 게임 </label>
+    &nbsp;&nbsp;
+    <label><input type="checkbox" name="hobby" value="여행">&nbsp;&nbsp; 여행 </label>
+    &nbsp;&nbsp;
+    <label><input type="checkbox" name="hobby" value="영화감상">&nbsp;&nbsp; 영화감상 </label>
+    <br><br>
+
+    <button type="button" class="btn btn-info btn-lg"
+    style="margin-left: 200px;width: 150px;">결과 확인</button>
+    <br><br>
+
+    <div id="result"></div>
+
+    </div>
+</body>
+</html>

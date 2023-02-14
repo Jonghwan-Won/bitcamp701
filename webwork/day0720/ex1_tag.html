@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- 구글 폰트 링크로 가져오기 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Gamja+Flower&family=Ibarra+Real+Nova:ital,wght@1,500&family=Jua&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+    
+
+    <style>     /* 앞에 * 표시는 모든 태그에 해당 속성을 주겠다는 뜻 */
+        *{
+          font-size: 30px;  
+        }
+
+        span>span{   /* span 태그에는 다 적용됨*/
+            color: red;     /* span>span 하면 span 바로밑에 span이 있는 하위구조에 적용 */
+                              /* span span 하면 span 바로밑이아닌 하위 어딘가에 있다면 적용됨*/
+            font-family: 'Gamja Flower';    /* +는 지우고 공백으로 두면 됨*/
+        }
+
+        b i{ /* b 밑에있는 모든 i 태그에 적용 */
+            color: blueviolet;
+            background-color: yellow;
+        }
+
+        <b>{
+            font-family: 'Jua';
+        }
+
+    </style>
+
+</head>
+<body>
+    <!-- html 주석입니다..소스보기에서는 보입니다 -->
+    <b>오늘은 즐거운 <i> 수요일</i>입니다</b><br>
+    <span>날씨가 맑아요..하지만 <u>더워요!!!</u> </span> <br>
+    <span>사과 <strike> 5000원 </strike> <span>4300원</span></span><br>
+    X<sup>2</sup>+Y<sub>3</sub><br>
+    <b>하나 둘 <span>셋 넷 <span>다섯 여섯 <i>드디어</i></span></b>
+
+
+</body>
+</html>

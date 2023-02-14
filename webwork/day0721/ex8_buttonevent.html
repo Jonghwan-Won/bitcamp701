@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Edu+VIC+WA+NT+Beginner:wght@600&family=Gamja+Flower&family=Jua&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+    <!--외부 CSS파일 가져오기-->
+    <link rel="stylesheet" href="../style.css">
+
+    <style>
+        #result{
+            width: 500px;
+            height: 150px;
+            line-height: 150px;
+            font-size: 22px;
+            font-family: 'Jua';
+            text-align: center;
+            border: 2px solid orange;
+            margin-top: 20px;
+            background: url('../미야자키/06.png') no-repeat right bottom;
+            background-size: 50px 60px;
+        }
+
+        #imga{
+            border: 5px groove tomato;
+            margin: 30px 150px; /* 위 왼쪽 */
+        }
+
+    </style>
+
+    <script>
+        /*
+        innerHTML:html을 넣는다
+        innerText:text를 넣는다
+        setAttribute("속성", 값):속성을 해당 값으로 변경
+        getAttribute("속성"):속성의 현재값을 반환한다
+        */
+
+        window.onload=function(){
+            //div의 요소값
+            var r=document.getElementById("result");
+            //image의 요소값
+            var photo=document.getElementById("imga");
+            //버튼1의 이벤트
+            document.getElementById("btn1").onclick=function(){
+                var name=prompt("당신의 이름은?");
+                if(name==null)
+                    r.innerText="<u>취소를 눌렀군요!!</u>"     //태그도 그대로 출력
+                else
+                    r.innerHTML="<u>당신의 이름은 "+name+"이군요!!</u>";   // 태그가 적용되어 출력
+            }
+
+            //버튼2의 이벤트
+            document.getElementById("btn2").onclick=function(){
+                //사진의 현재 width값을 얻는다
+                var width=photo.getAttribute("width");
+                console.log(width);
+                var new_width=prompt("이미지의 너비를 입력해주세요",width);
+                //취소 클릭 시(null) 메시지
+                if(new_width==null)
+                    alert("이미지 너비를 변경하지 않겠어요!!");
+                //확인 클릭 시 너비 변경
+                else
+                    photo.setAttribute("width",new_width);
+
+            }
+
+            //버튼3의 이벤트
+            document.getElementById("btn3").onclick=function(){
+                var num=prompt("1~20 사이의 사진 번호를 입력해주세요",1)
+
+                if(num==null){  // 취소 클릭 시
+                    alert("지금 사진이 좋아!!! 안바꿀래");
+                    return
+                }
+                if(num<1||num>20){  // 1~20 아닌 숫자 입력 시 
+                    alert("1~20 사이로 입력하라고!!!");
+                    return; //함수 종료
+                }
+                //경로 구하기
+                var imgpath="../연예인사진/"+num+".jpg";
+                //이미지 변경
+                photo.setAttribute("src",imgpath);
+            }
+        }
+    </script>
+
+</head>
+<body>
+    <button type="button" class="btn btn-green" id="btn1">이벤트#1</button>
+    <button type="button" class="btn btn-green" id="btn2">이벤트#2</button>
+    <button type="button" class="btn btn-green" id="btn3">이벤트#3</button>
+    <div id="result">테스트</div>
+
+    <img src="../연예인사진/13.jpg" width="250" id="imga">
+</body>
+</html>

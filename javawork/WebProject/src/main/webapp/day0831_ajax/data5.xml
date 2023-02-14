@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+	<guest>
+		<date>2022-08-12</date>
+		<message>안녕하세요.</message>
+		<photo width="200">../image/01.png</photo>
+	</guest>
+	<guest>
+		<date>2022-10-25</date>
+		<message>Ajax 어떤데</message>
+		<photo width="180">../image/6.jpg</photo>
+	</guest>
+	<guest>
+		<date>2022-11-23</date>
+		<message>집에 가고싶다</message>
+		<photo width="220">../image/독일족발.jpg</photo>
+	</guest>
+	<guest>
+		<date>2022-08-31</date>
+		<message>오점뭐</message>
+		<photo width="230">../image2/29.jpg</photo>
+	</guest>
+</data>

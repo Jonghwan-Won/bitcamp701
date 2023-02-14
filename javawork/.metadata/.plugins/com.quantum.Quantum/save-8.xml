@@ -1,0 +1,214 @@
+<?xml version="1.0" ?>
+<SAVED_DATA>
+	<bookmarks>
+		<jdbcDriver className="com.mysql.cj.jdbc.Driver" name="MySQL Connector/J" type="MYSQL" version="mysql-connector-java-8.0.22 (Revision: d64b664fa93e81296a377de031b8123a67e6def2)">
+			<jar fileName="C:\java0711\mysql-connector-java-8.0.22.jar" />
+		</jdbcDriver>
+		<jdbcDriver className="oracle.jdbc.driver.OracleDriver" name="Oracle JDBC driver" type="ORACLE" version="9.2.0.1.0">
+			<jar fileName="C:\java0711\ojdbc14.jar" />
+		</jdbcDriver>
+		<jdbcDriver className="org.apache.derby.jdbc.EmbeddedDriver" name="org.apache.derby.jdbc.EmbeddedDriver" type="DERBY" version="">
+			<jar fileName="C:/Users/user/.p2/pool/plugins/com.quantum.derby_3.3.9/lib/derby.jar" />
+		</jdbcDriver>
+		<bookmark>
+			<name>(Internal) Derby</name>
+			<username>QUANTUM</username>
+			<password />
+			<prompt>false</prompt>
+			<connect>jdbc:derby:C:/Users/user/.p2/pool/plugins/com.quantum.derby_3.3.9/data/quantum</connect>
+			<autoCommit>true</autoCommit>
+			<autoCommitPreference>Always True</autoCommitPreference>
+			<autoCommitIgnoreView>false</autoCommitIgnoreView>
+			<quoteAll>false</quoteAll>
+			<sendQueryAsIs>false</sendQueryAsIs>
+			<stripNewline>false</stripNewline>
+			<shutdownOnDisconnect>true</shutdownOnDisconnect>
+			<defaultEncoding />
+			<driver>org.apache.derby.jdbc.EmbeddedDriver</driver>
+			<type>DERBY</type>
+			<substituteVariables>false</substituteVariables>
+			<variablesRegexp>\$\{(.*?)\}</variablesRegexp>
+			<driverLocation>C:/Users/user/.p2/pool/plugins/com.quantum.derby_3.3.9/lib/derby.jar</driverLocation>
+			<Other_Schemas schemaRule="useAll" />
+			<quickList />
+			<queryList />
+		</bookmark>
+		<bookmark>
+			<name>oracle_angel </name>
+			<username>angel</username>
+			<password>a1234</password>
+			<prompt>false</prompt>
+			<connect>jdbc:oracle:thin:@localhost:1521:xe</connect>
+			<autoCommit>true</autoCommit>
+			<autoCommitPreference>Always True</autoCommitPreference>
+			<autoCommitIgnoreView>false</autoCommitIgnoreView>
+			<quoteAll>false</quoteAll>
+			<sendQueryAsIs>false</sendQueryAsIs>
+			<stripNewline>false</stripNewline>
+			<shutdownOnDisconnect>false</shutdownOnDisconnect>
+			<defaultEncoding />
+			<driver>oracle.jdbc.driver.OracleDriver</driver>
+			<type>ORACLE</type>
+			<substituteVariables>false</substituteVariables>
+			<variablesRegexp>\$\{(.*?)\}</variablesRegexp>
+			<driverLocation>C:\java0711\ojdbc14.jar</driverLocation>
+			<Other_Schemas schemaRule="useSelected">
+				<schema>ANGEL</schema>
+			</Other_Schemas>
+			<quickList />
+			<queryList>
+				<query>
+					<queryString>drop sequence seq_shop</queryString>
+				</query>
+				<query>
+					<queryString>drop sequence seq_stu</queryString>
+				</query>
+				<query>
+					<queryString>drop sequence seq_test</queryString>
+				</query>
+				<query>
+					<queryString>drop sequence seq_travel</queryString>
+				</query>
+				<query>
+					<queryString>select foodno,fname,to_char(fprice,'L99,999') from food</queryString>
+				</query>
+				<query>
+					<queryString>select foodno,fname,to_char(fprice,'L99,999') fprice from food</queryString>
+				</query>
+				<query>
+					<queryString>select foodno,fname,to_char(fprice,'L99,999') fprice from food order by foodno asc</queryString>
+				</query>
+				<query>
+					<queryString>select foodno,fname,to_char(fprice,'L99,999') fprice from food order by fname asc</queryString>
+				</query>
+				<query>
+					<queryString>create sequence seq1 start with 10 increment by 1 nocache</queryString>
+				</query>
+				<query>
+					<queryString>delete from client</queryString>
+				</query>
+				<query>
+					<queryString>select * from client</queryString>
+				</query>
+				<query>
+					<queryString>drop table client</queryString>
+				</query>
+				<query>
+					<queryString>drop table cart</queryString>
+				</query>
+				<query>
+					<queryString>drop table mytravel</queryString>
+				</query>
+				<query>
+					<queryString>drop table travelagency</queryString>
+				</query>
+				<query>
+					<queryString>drop table person</queryString>
+				</query>
+				<query>
+					<queryString>drop table shop</queryString>
+				</query>
+				<query>
+					<queryString>drop table student</queryString>
+				</query>
+				<query>
+					<queryString>select * from sawon</queryString>
+				</query>
+				<query>
+					<queryString>select buseo,count(*) count, round(avg(pay),0) pay from sawon group by buseo</queryString>
+				</query>
+			</queryList>
+		</bookmark>
+		<bookmark>
+			<name>mysql_angel</name>
+			<username>angel</username>
+			<password>1234</password>
+			<prompt>false</prompt>
+			<connect>jdbc:mysql://localhost:3306/bitcamp?serverTimezone=Asia/Seoul</connect>
+			<autoCommit>true</autoCommit>
+			<autoCommitPreference>Always True</autoCommitPreference>
+			<autoCommitIgnoreView>false</autoCommitIgnoreView>
+			<quoteAll>false</quoteAll>
+			<sendQueryAsIs>false</sendQueryAsIs>
+			<stripNewline>false</stripNewline>
+			<shutdownOnDisconnect>false</shutdownOnDisconnect>
+			<defaultEncoding />
+			<driver>com.mysql.cj.jdbc.Driver</driver>
+			<type>MYSQL</type>
+			<substituteVariables>false</substituteVariables>
+			<variablesRegexp>\$\{(.*?)\}</variablesRegexp>
+			<driverLocation>C:\java0711\mysql-connector-java-8.0.22.jar</driverLocation>
+			<Other_Schemas schemaRule="useSelected">
+				<schema>bitcamp</schema>
+			</Other_Schemas>
+			<quickList />
+			<queryList>
+				<query>
+					<queryString>create table student (
+num smallint auto_increment primary key,
+name varchar(20),
+addr varchar(30),
+writeday datetime)</queryString>
+				</query>
+				<query>
+					<queryString>insert into student (name,addr,writeday) values ('이진','강남구',now())</queryString>
+				</query>
+				<query>
+					<queryString>insert into student (name,addr,writeday) values ('한지혜','도곡동',now())</queryString>
+				</query>
+				<query>
+					<queryString>insert into student (name,addr,writeday) values ('강호동','영등포',now())</queryString>
+				</query>
+				<query>
+					<queryString>insert into student (name,addr,writeday) values ('유재석','제주도',now())</queryString>
+				</query>
+				<query>
+					<queryString>insert into student (name,addr,writeday) values ('이영자','부산 해운대',now())</queryString>
+				</query>
+				<query>
+					<queryString>select * from student</queryString>
+				</query>
+				<query>
+					<queryString>select * from student where name like '이%'</queryString>
+				</query>
+				<query>
+					<queryString>create table myshop (
+num smallint auto_increment primary key,
+sangpum varchar(30),
+color varchar(20),
+price int,
+ipgoday varchar(20),
+writeday datetime)</queryString>
+				</query>
+				<query>
+					<queryString>drop table myshop</queryString>
+				</query>
+				<query>
+					<queryString>create table myshop (
+num smallint auto_increment primary key,
+sangpum varchar(30),
+photo varchar(30),
+color varchar(20),
+price int,
+ipgoday varchar(20),
+writeday datetime)</queryString>
+				</query>
+				<query>
+					<queryString>insert into myshop values (null, '머리띠',30,'purple',19000,'2022-08-10',now())</queryString>
+				</query>
+				<query>
+					<queryString>create table booking (
+     num smallint auto_increment primary key,
+     name varchar(20),
+     gender char(1),
+     bookday varchar(30),
+     inwon smallint,
+     foodphoto varchar(200),
+     foodprice varchar(200),
+     message varchar(100),
+     writeday datetime)</queryString>
+				</query>
+			</queryList>
+		</bookmark>
+	</bookmarks>
+</SAVED_DATA>

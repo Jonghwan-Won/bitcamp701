@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style.css">
+
+    <style>
+        button{
+            width: 80px;
+            height: 80px;
+            margin-top: 3px;
+            margin-left: 3px;
+            cursor: pointer;
+        }
+
+        button.bs1{
+            font-size: 20px;
+            color: blue;
+        }
+
+        button.bs2{
+            color: red;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        button.equal{
+            background-color: #e8b5e8;
+            color: red;
+        }
+
+        #txtresult{
+            width: 335px;
+            height: 70px;
+            border: 1px solid gray;
+            margin-bottom: 5px;
+            font-size: 30px;
+            text-align: right;
+            padding-right: 10px;
+        }
+    </style>
+
+    <script>
+        var bfirst=true;
+        var bdot=false;
+        var su1,su2,oper;
+
+        window.onload=function(){
+            var r=document.getElementById("txtresult");
+            //숫자 이벤트
+            var num=document.getElementsByClassName("num"); //배열타입
+            for(var i=0;i<num.length;i++)
+            {
+                num[i].onclick=function(){
+                    // alert(this.innerText);
+                    
+                    //bfirst가 true면 새로 출력, false면 누적
+                    if(bfirst||r.value=='0'){
+                        r.value=this.innerText;
+                        bfirst=false;   //첫번째 숫자만 새로 찍히고, 그 다음입력은 누적
+                    }else{
+                        //기존의 value 값에 클릭한 숫자를 더해서 다시 value로 보낸다
+                        r.value=r.value+this.innerText;
+                    }
+                    
+                }
+            }
+            //dot 클릭 시
+            document.querySelector(".dot").onclick=function(){
+                if(!bdot){  //bdot==false
+                    r.value=r.value+".";    //기존값에 .을 더한다
+                    bdot=true;  //true로 바뀌므로 .이 계속해서 찍힐 수 없음
+                }
+            }
+
+            //연산자 클릭 시
+            var oper=document.getElementsByClassName("oper"); //배열
+            for(var i=0;i<oper.length;i++){
+                oper[i].onclick=function(){
+                    //r의 값을 su1에 저장
+                    su1=r.value;
+                    
+                    //현재 연산자를 oper에 저장
+                    oper=this.innerText;
+                    if(oper=='÷')
+                        oper="/";
+                    
+                    if(oper=='X')
+                        oper="*";
+
+                    //다시 숫자 클릭 시 새로 써지도록 bfirst 변경
+                    bfirst=true;
+                    
+                    //다시 숫자에 점을 추가할 수 있도록 bdot 변경
+                    bdot=false;
+                }
+            }
+
+            //back
+            document.querySelector(".back").onclick=function(){
+                //r의 전체 길이를 구한다
+                var len=r.value.length;
+
+                //마지막 글자가 .인지 체크해보자
+                var dotidx=r.value.indexOf(".");
+                console.log(dotidx);
+
+                //.의 위치가 마지막이라면 (len-1) 곧 지울거니까 bdot를 false
+                if(dotidx==len-1){
+                    bdot=false;
+                }
+
+                //마지막 글자를 빼고 추출
+                r.value=r.value.substring(0,len-1);
+
+                //이때 추출된 값이 없으면 0 출력
+                if(r.value.length==0){
+                    r.value="0";
+                    bfirst=true;
+                }
+
+                
+            }
+
+            //equal =계산
+            document.querySelector(".equal").onclick=function(){
+                //현재 r의 값을 su2에 저장
+                su2=r.value;
+                //3+5 이런 식으로 문자열을 만들어준 후 eval로 계산한 결과를
+                //r에 출력 후 다시 su1에 저장
+                var susik=su1+oper+su2;
+                console.log(susik);
+                su1=eval(susik);
+                r.value=su1;
+
+                bfirst=true;
+                bdot=false;
+            }
+
+            // +/-:부호 바뀌도록 코드 추가
+            document.querySelector(".sign").onclick=function(){
+                r.value=r.value*-1;
+            }
+
+            //CE: 현재 r의 value값을 초기화 (bdot, bfrist도)
+            document.querySelector(".ce").onclick=function(){
+                r.value="0";
+                bfirst=true;
+                bdot=false;
+            }
+
+            //C: 모두 초기화(su1,oper,su2,bfirst,bdot)
+            document.querySelector(".c").onclick=function(){
+                r.value="0";
+                su1="";
+                su2="";
+                oper="";
+                bfirst=true;
+                bdot=false;
+            }
+
+
+        }
+    </script>
+
+</head>
+<body>
+    <div class="calc">
+        <!-- 숫자 num / 연산자 oper -->
+        <input type="text" id="txtresult" value="0">
+        <br>
+        <button type="button" class="sign bs1" >+/-</button>
+        <button type="button" class="ce bs1">CE</button>
+        <button type="button" class="c bs1">C</button>
+        <button type="button" class="back bs1">Back</button>
+        <br>
+        <button type="button" class="num bs2">7</button>
+        <button type="button" class="num bs2">8</button>
+        <button type="button" class="num bs2">9</button>
+        <button type="button" class="oper bs3">÷</button>
+        <br>
+        <button type="button" class="num bs2">4</button>
+        <button type="button" class="num bs2">5</button>
+        <button type="button" class="num bs2">6</button>
+        <button type="button" class="oper bs3">X</button>
+        <br>
+        <button type="button" class="num bs2">1</button>
+        <button type="button" class="num bs2">2</button>
+        <button type="button" class="num bs2">3</button>
+        <button type="button" class="oper bs3">-</button>
+        <br>
+        <button type="button" class="num bs2">0</button>
+        <button type="button" class="dot bs1">.</button>
+        <button type="button" class="equal bs1">=</button>
+        <button type="button" class="oper bs3">+</button>
+
+
+    </div>
+</body>
+</html>

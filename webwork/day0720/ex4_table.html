@@ -1,0 +1,203 @@
+<!DOCTYPE html> <!-- html5 가 이렇게 생김 -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .tb1, .tb2{
+            width: 400px;
+            border: 3px solid gray;
+            border-collapse: collapse; /* 칸과 칸 사이 여백 없애기 */
+        }
+
+        .tb1 td, .tb1 th
+        {
+            border: 1px solid green;
+        }
+
+        .tb2 td, .tb2 th
+        {
+            border: 1px solid gray;
+        }
+
+        .tb1 tr>th
+        {
+            background-color: cornflowerblue;
+            color: white;
+        }
+
+        .tb1 tr td
+        {
+            background-color: #ccc;
+            color: blue;
+        }
+
+        /* 마우스 올렸을때 속성 */
+        .tb1 tr td:hover{
+            background-color: black;
+            color: white;
+        }
+
+        /* 마우스 클릭했을때 속성 */
+        .tb1 tr td:active{
+            background-color: pink;
+            color: red;
+        }
+
+        .tb3{
+            width: 600px;
+            border: 3px solid gray;
+            border-collapse: collapse; /* 칸과 칸 사이 여백 없애기 */
+        }
+
+
+    </style>
+
+</head>
+<body>
+    <table border="1" style="width: 300px;">
+        <caption> [표1] </caption>
+        <tr height="50" bgcolor="orange"> <!-- 1줄 -->
+
+            <td align="center"> one </td> <!-- 1칸 -->
+            <td align="right" valign="top"> two </td>
+            <td valign="bottom" bgcolor="gray"> three </td>
+
+        </tr>
+        
+        <tr height="50" align="center">
+            <td colspan="3"> 
+                3칸 합침!
+
+            </td>
+        </tr>
+    </table>
+
+    <hr>
+
+    <table class="tb1">
+        <caption><h2> [표2] </h2></caption>
+        
+        <tr height="40">
+            <th>사진</th>
+            <th>이름</th> <!-- td와 같이 1칸임, h는 헤더라는 의미 : 가운데정렬, 굵게 속성 -->
+            <th>주소</th>
+            <th>핸드폰</th>
+        </tr>
+
+        <tr>
+           <td rowspan="3">
+            <img src="../미야자키/06.png" width="80">
+           </td>
+           <td>캔디</td> <td>강남</td> <td>010-2222-3333</td>
+        </tr>
+        
+        <tr>
+            <td>테리우스</td><td>여의도</td><td>02-1212-2323</td>
+        </tr>
+        
+        <tr>
+            <td>안쏘니</td><td>영등포</td><td>02-3434-5656</td>
+        </tr>
+    </table>
+
+    <hr>
+
+    <table class="tb2">
+        <caption><h3>ppt 48p</h3></caption>
+        <tr>
+            <td rowspan="3" valign="top" bgcolor="cyan"> 일 </td>
+            <td colspan="3" bgcolor="pink"> 이 </td>
+       </tr>
+
+        <tr>
+            <td colspan="2" bgcolor="pink"> 삼 </td>
+            <td rowspan="3" bgcolor="cyan" valign="bottom"> 사 </td>
+        </tr>
+            <td> 오 </td>
+            <td> 육 </td>
+        <tr>
+            <td colspan="3" bgcolor="pink"> 칠 </td>
+        </tr>
+    </table>
+
+    <hr>
+
+    <table border="1" class="tb3">
+        <caption><h2>아르바이트 지원서</h2></caption>
+        <tr>
+            <td width=120px bgcolor="lightgray">성명</td>
+        </tr>
+        <tr>
+            <td bgcolor="lightgray">생년월일</td>
+            <td>  </td>
+            <td bgcolor="lightgray">성별</td>
+            <td>  </td>
+        </tr>
+        <tr>
+            <td bgcolor="lightgray">연락처(핸드폰)</td>
+            <td colspan="3"></td>
+        </tr>
+        <tr>
+            <td bgcolor="lightgray">e-mail</td>
+            <td colspan="3"></td>
+        </tr>
+        <tr>
+            <td bgcolor="lightgray">현 주소</td>
+            <td colspan="3"></td>
+        </tr>
+
+        <tr>
+            <td bgcolor="lightgray" rowspan="2">학력사항</td>
+            <td bgcolor="lightgray">학교명</td>
+            <td bgcolor="lightgray">기간</td>
+            <td bgcolor="lightgray">전공</td>
+        </tr>
+        <tr>
+            <td height="20px"> </td>
+            <td height="20px"> </td>
+            <td height="20px"> </td>
+        </tr>
+        
+
+        <tr>
+            <td rowspan="6" bgcolor="lightgray"> 아르바이트<br>경력사항</td>
+            <td bgcolor="lightgray">직장명</td>
+            <td bgcolor="lightgray">기간</td>
+            <td bgcolor="lightgray">주요 업무</td>
+        </tr>
+        <tr>
+            <td height="20px"> </td>
+            <td height="20px"> </td>
+            <td height="20px"> </td>
+        </tr>
+        <tr>
+            <td height="20px"> </td>
+            <td height="20px"> </td>
+            <td height="20px"> </td>
+        </tr>
+        <tr>
+            <td height="20px"> </td>
+            <td height="20px"> </td>
+            <td height="20px"> </td>
+        </tr>
+        <tr>
+            <td height="20px"> </td>
+            <td height="20px"> </td>
+            <td height="20px"> </td>
+        </tr>
+        <tr>
+            <td height="20px"> </td>
+            <td height="20px"> </td>
+            <td height="20px"> </td>
+        </tr>
+
+
+    </table>
+
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<bitcamp>
+	<stu name="이씨">
+		<java>90</java>
+		<spring>100</spring>
+		<html>78</html>
+	</stu>
+	<stu name="kim">
+		<java>67</java>
+		<spring>82</spring>
+		<html>95</html>
+	</stu>
+	<stu name="son">
+		<java>93</java>
+		<spring>78</spring>
+		<html>85</html>
+	</stu>
+
+
+</bitcamp>

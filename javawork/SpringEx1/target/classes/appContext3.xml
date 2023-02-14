@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+	<bean id="myshop" class="ex3.MyShop">
+		<!-- 생성자는 객체(ref) 주입 -->
+		<constructor-arg value="청바지"/>
+		<!-- property는 setter주입 -->
+		<property name="color" value="푸른색"/>
+		<property name="price" value="25000"/>
+	</bean>
+	
+	<bean id="myshop2" class="ex3.MyShop">
+		<!-- 생성자는 객체(ref) 주입 -->
+		<constructor-arg value="블라우스"/>
+		<!-- property는 setter주입 -->
+		<property name="color" value="노란색"/>
+		<property name="price" value="39000"/>
+	</bean>
+	
+	
+	
+
+	<!-- 여기 id는 main에서 person이라고 줬으므로 똑같이 써야함 -->
+	<bean id="person" class="ex3.Person">
+		<!-- 생성자는 객체(ref) 주입 -->
+		<constructor-arg value="이미자"/>
+		<constructor-arg value="강남구"/>
+		<!-- property는 setter주입 -->
+		<property name="myShop" ref="myshop"/>
+	</bean>
+	
+	<bean id="person2" class="ex3.Person">
+		<!-- 생성자는 객체(ref) 주입 -->
+		<constructor-arg value="강호동"/>
+		<constructor-arg value="제주도"/>
+		<!-- property는 setter주입 -->
+		<property name="myShop" ref="myshop2"/> <!-- 객체 -->
+	</bean>
+
+	
+
+</beans>

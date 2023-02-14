@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=Edu+VIC+WA+NT+Beginner:wght@600&family=Gamja+Flower&family=Single+Day&family=Jua&family=Nanum+Pen+Script&display=swap"
+        rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+ 
+    <style>
+        .heart{
+            font-size: 50px;
+            cursor: pointer;
+            position: absolute;
+            left:200px;
+            top:100px;
+        }
+
+    </style>
+</head>
+<body>
+    <span id="icon_emp" class="glyphicon glyphicon-heart-empty heart"></span>
+
+    <script>
+        $(".heart").click(function(){
+            var cls=$(this).attr('class');
+
+            $(this).animate({ fontSize: '100px',left:'+=100px'}, 2000, function(){
+                $(this).css({
+                    fontSize: '50px',
+                    left:'200px'
+                });
+
+                if(cls=='glyphicon glyphicon-heart-empty heart'){
+                    $(this).attr("class","glyphicon glyphicon-heart heart");
+                    $(this).css("color","red");
+                } else {
+                    $(this).attr("class","glyphicon glyphicon-heart-empty heart");
+                    $(this).css("color","black");
+                }
+
+            });
+        });
+
+        // 2.1초마다 하트 강제 클릭
+        setInterval(function(){
+            $(".heart").trigger('click');
+        },2100);
+
+    </script>
+</body>
+</html>

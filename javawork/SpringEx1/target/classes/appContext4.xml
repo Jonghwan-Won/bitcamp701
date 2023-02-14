@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+	<!-- xml방식 -->
+	<!-- id 는 내 맘대로 -->
+	<!-- <bean id="canada" class="ex4.CanadaTire"/>
+	<bean id="car" class="ex4.Car">
+		<constructor-arg ref="canada"/>
+	</bean> -->
+
+
+	<!-- annotation 방식시 필요한 설정 -->
+	<context:annotation-config/>
+	
+	<!-- 클래스를 등록할 패키지, * 가능 (예: com.spring.test1 / com.spring.test2 => 이런 경우 com.spring.* -->
+	<!-- 공통된 이름이 없으면 , 컴마로 다 써줘야됨 -->
+	<context:component-scan base-package="ex4"/>
+
+</beans>

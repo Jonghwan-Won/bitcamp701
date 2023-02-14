@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+	<!-- 생성자를 통한 주입 Counstructor-->
+	<!-- setter를 통한 주입은 property 이며, 이번엔 생성자를 통한 주입을 사용 -->
+	<!-- 디폴트 생성자가 없어서 오류남 -->
+	
+	<!-- 생성자 주입 (DI) : singletone생성(기본) : 생성시 같은 주소에 생성-->
+	<bean id="myinfo" class="ex2.MyInfo" scope="singleton">
+	<!-- 기본은 singletone : 건물을 여러번지어도 주소는 하나 // 주소 생성하면 다 같은 주소가 나옴-->
+	<!-- 쓰지않고 생략 가능 .. 기본값임 -->
+		<constructor-arg value="이영자"/>
+		<constructor-arg value="23"/>
+		<constructor-arg>
+			<value>서울시 강남구 역삼동 삼일빌딩 5층 비트캠프</value>
+		</constructor-arg>
+	</bean>
+	
+	
+	
+	<!-- Student 객체 -->
+	<bean id="stu" class="ex2.Student">
+		<constructor-arg ref="myinfo"/>
+		<!-- 생성자는 객체(ref) 주입 -->
+		<property name="schoolName" value="강남고등학교"/>
+		<!-- setter는 property (value)주입 -->
+		<!-- == property는 setter주입 -->
+	</bean>
+	
+</beans>

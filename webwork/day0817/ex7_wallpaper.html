@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=Edu+VIC+WA+NT+Beginner:wght@600&family=Gamja+Flower&family=Single+Day&family=Jua&family=Nanum+Pen+Script&display=swap"
+        rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+
+    <style>
+        body,h1,ul{
+            margin: 0;
+            padding: 0;
+        }
+
+        li{list-style: none;}
+
+        body{
+            background-color: #fff;
+        }
+
+        div.wall{
+            width: 800px;
+            height: 600px;
+            margin: 50px auto;
+            background-color: #999;
+            position: relative;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            border-radius: 5px;
+            border: 5px solid #333;
+            overflow: hidden;   /* 스크롤바 숨김 */
+        }
+
+        h1.title{
+            font-size: 37px;
+            position: absolute;
+            right: 43px;
+            top: 60px;
+            width: 130px;
+            font-family: 'Edu VIC WA NT Beginner';
+        }
+
+        div.wall ul.list{
+            background-color: rgba(0,0,0,0.9);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            border-top: 1px solid #666;
+        }
+
+        div.wall ul.list li{
+            float: left;
+            margin-left: 10px;
+            margin-top: 10px;
+            width: 70px;
+            height: 70px;
+            border: 5px solid #333;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        div.wall ul.list li img{
+            width: 100%;
+
+        }
+
+        /* 제이쿼리에서 사용할 클래스 미리 지정하기 */
+        div.wall ul.list li.active{
+            border-color: darkgreen;
+        }
+    </style>
+
+    <script>
+        $(function(){
+            //벽지 이미지 클릭시 이벤트
+            $("ul.list img").click(function(){
+                //현재 클릭한 이미지의 부모태그인 li에 active 추가
+                // $(this).parent().attr('class','active'); //내 풀이
+                $(this).parent().addClass("active");
+                
+                //그 이전에 추가된 active 제거(siblings 이용)
+                $(this).parent().siblings().removeClass("active");
+                
+                //클릭한 이미지의 title 얻기
+                var title=$(this).attr('title');
+
+                //위의 title을 h1.title에 넣기
+                $("h1.title").text(title);
+                
+                //클릭한 이미지의 src얻기
+                var selectSrc=$(this).attr("src");
+                                
+                //위의 src를 .wall에 넣는데 background-image로 넣어야함
+                var s="url('"+selectSrc+"')";
+                $(".wall").css("background-image",s);
+
+            });
+        });
+    </script>
+
+</head>
+<body>
+    <div class="wall">
+        <h1 class="title">Select Page</h1>
+        <img src="../jquery_image/cover2.png">
+        <ul class="list">
+            <li><img src="../jquery_image/b01.png" title="Pear"></li>
+            <li><img src="../jquery_image/b02.png" title="Checker"></li>
+            <li><img src="../jquery_image/b03.png" title="Bamboo"></li>
+            <li><img src="../jquery_image/b04.png" title="School"></li>
+            <li><img src="../jquery_image/b05.png" title="Leap"></li>
+            <li><img src="../jquery_image/b06.png" title="Forest"></li>
+        </ul>
+    </div>
+
+    
+</body>
+</html>

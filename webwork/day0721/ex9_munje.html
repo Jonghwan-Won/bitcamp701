@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Edu+VIC+WA+NT+Beginner:wght@600&family=Gamja+Flower&family=Jua&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+
+<style>
+    #result{
+        width: 400px;
+        height: 100px;
+        line-height: 100px;
+        font-size: 22px;
+        font-family: 'Jua';
+        text-align: center;
+        border: 2px solid silver;
+        margin-left: 50px;
+        margin-top: 20px;
+        /* background: url('../미야자키/06.png') no-repeat right bottom; */
+        /* background-size: 50px 60px; */
+    }
+</style>
+
+<script>
+window.onload=function(){
+var r=document.getElementById("result");
+var photo=document.getElementById("imga");
+
+document.getElementById("btn1").onclick=function(){
+    var imgpath="../음식사진/12.jpg";   //경로
+    photo.setAttribute("src",imgpath);  //이미지 변경
+    r.innerHTML=" 라면 ";
+}
+
+document.getElementById("btn2").onclick=function(){
+    var imgpath="../음식사진/8.jpg";   //경로
+    photo.setAttribute("src",imgpath);  //이미지 변경
+    r.innerHTML=" 샌드위치 ";
+}
+
+document.getElementById("btn3").onclick=function(){
+    var imgpath="../음식사진/5.jpg";   //경로
+    photo.setAttribute("src",imgpath);  //이미지 변경
+    r.innerHTML=" 콘치즈 ";
+}
+
+document.getElementById("btn4").onclick=function(){
+    var width=photo.getAttribute("width");  //사진의 현재 width값
+    // var small_width=width-100;
+    photo.setAttribute("width",300);
+}
+
+document.getElementById("btn5").onclick=function(){
+    var width=photo.getAttribute("width");  //사진의 현재 width값
+    photo.setAttribute("width",600);
+}
+
+document.getElementById("btn6").onclick=function(){
+    var width=photo.getAttribute("width");  //사진의 현재 width값
+    // var big_width=width+100;
+    photo.setAttribute("width",1000);
+
+}
+
+}
+</script>
+
+
+
+<body>
+    <button type="button" class="btn btn-pink" id="btn1"> 라면 </button>
+    <button type="button" class="btn btn-pink" id="btn2"> 샌드위치 </button>
+    <button type="button" class="btn btn-pink" id="btn3"> 콘치즈 </button> <br><br>
+
+    <button type="button" class="btn btn-green" id="btn4"> 작게 </button>
+    <button type="button" class="btn btn-green" id="btn5"> 원래대로 </button>
+    <button type="button" class="btn btn-green" id="btn6"> 크게 </button> <br> <br>
+    <img id="imga">
+    <div id="result"> </div>
+
+
+</body>
+</html>

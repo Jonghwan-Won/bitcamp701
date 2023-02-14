@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Edu+VIC+WA+NT+Beginner:wght@600&family=
+                Gamja+Flower&family=Single+Day&family=Jua&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+
+    <!-- <script>
+	$(function(){
+        $("img").click(function(){
+        var s=$(this).attr("src");
+        var w=$(this).attr("width");
+        var t=$(this).attr("title");
+        
+        var copyImg="<img src='"+s+"' width="+w+">";
+        $("hr").after(copyImg);
+        
+        $("div").html(t).css({
+            "font-size":"25px",
+            "font-family":"Jua"
+        });
+    
+        });
+    });
+    </script> -->
+
+</head>
+
+<body>
+    <h2>
+        사진 클릭시 src와 width를 얻어서 hr태그 다음에 같은 이름의 사진넣기
+        <br>
+        사진의 title은 얻어서 div 안에 넣고(html이나 append) 글자 크기를 25px, 글꼴을 Jua로 변경하기
+    </h2>
+
+    <img src="../연예인사진/4.jpg" width="200" title="제가 박서준입니다"> <!-- title은 마우스 갖다대면 나옴 -->
+    <hr>
+    <div></div>
+
+    <script>
+
+        $("img").click(function () {
+            var s = $(this).attr("src");
+            var w = $(this).attr("width");
+            var t = $(this).attr("title");
+
+            var copyImg = "<img src='" + s + "' width=" + w + ">";
+            $("hr").after(copyImg);
+
+            $("div").html(t).css({
+                "font-size": "25px",
+                "font-family": "Jua"
+            });
+
+        });
+
+    </script>
+</body>
+
+</html>

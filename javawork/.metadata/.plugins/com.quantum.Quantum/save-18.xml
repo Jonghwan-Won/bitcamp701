@@ -1,0 +1,232 @@
+<?xml version="1.0" ?>
+<SAVED_DATA>
+	<bookmarks>
+		<jdbcDriver className="com.mysql.cj.jdbc.Driver" name="MySQL Connector/J" type="MYSQL" version="mysql-connector-java-8.0.22 (Revision: d64b664fa93e81296a377de031b8123a67e6def2)">
+			<jar fileName="C:\java0711\mysql-connector-java-8.0.22.jar" />
+		</jdbcDriver>
+		<jdbcDriver className="oracle.jdbc.driver.OracleDriver" name="Oracle JDBC driver" type="ORACLE" version="9.2.0.1.0">
+			<jar fileName="C:\java0711\ojdbc14.jar" />
+		</jdbcDriver>
+		<jdbcDriver className="org.apache.derby.jdbc.EmbeddedDriver" name="org.apache.derby.jdbc.EmbeddedDriver" type="DERBY" version="">
+			<jar fileName="C:/Users/user/.p2/pool/plugins/com.quantum.derby_3.3.9/lib/derby.jar" />
+		</jdbcDriver>
+		<bookmark>
+			<name>(Internal) Derby</name>
+			<username>QUANTUM</username>
+			<password />
+			<prompt>false</prompt>
+			<connect>jdbc:derby:C:/Users/user/.p2/pool/plugins/com.quantum.derby_3.3.9/data/quantum</connect>
+			<autoCommit>true</autoCommit>
+			<autoCommitPreference>Always True</autoCommitPreference>
+			<autoCommitIgnoreView>false</autoCommitIgnoreView>
+			<quoteAll>false</quoteAll>
+			<sendQueryAsIs>false</sendQueryAsIs>
+			<stripNewline>false</stripNewline>
+			<shutdownOnDisconnect>true</shutdownOnDisconnect>
+			<defaultEncoding />
+			<driver>org.apache.derby.jdbc.EmbeddedDriver</driver>
+			<type>DERBY</type>
+			<substituteVariables>false</substituteVariables>
+			<variablesRegexp>\$\{(.*?)\}</variablesRegexp>
+			<driverLocation>C:/Users/user/.p2/pool/plugins/com.quantum.derby_3.3.9/lib/derby.jar</driverLocation>
+			<Other_Schemas schemaRule="useAll" />
+			<quickList />
+			<queryList />
+		</bookmark>
+		<bookmark>
+			<name>oracle_angel </name>
+			<username>angel</username>
+			<password>a1234</password>
+			<prompt>false</prompt>
+			<connect>jdbc:oracle:thin:@localhost:1521:xe</connect>
+			<autoCommit>true</autoCommit>
+			<autoCommitPreference>Always True</autoCommitPreference>
+			<autoCommitIgnoreView>false</autoCommitIgnoreView>
+			<quoteAll>false</quoteAll>
+			<sendQueryAsIs>false</sendQueryAsIs>
+			<stripNewline>false</stripNewline>
+			<shutdownOnDisconnect>false</shutdownOnDisconnect>
+			<defaultEncoding />
+			<driver>oracle.jdbc.driver.OracleDriver</driver>
+			<type>ORACLE</type>
+			<substituteVariables>false</substituteVariables>
+			<variablesRegexp>\$\{(.*?)\}</variablesRegexp>
+			<driverLocation>C:\java0711\ojdbc14.jar</driverLocation>
+			<Other_Schemas schemaRule="useSelected">
+				<schema>ANGEL</schema>
+			</Other_Schemas>
+			<quickList />
+			<queryList>
+				<query>
+					<queryString>drop sequence seq_shop</queryString>
+				</query>
+				<query>
+					<queryString>drop sequence seq_stu</queryString>
+				</query>
+				<query>
+					<queryString>drop sequence seq_test</queryString>
+				</query>
+				<query>
+					<queryString>drop sequence seq_travel</queryString>
+				</query>
+				<query>
+					<queryString>select foodno,fname,to_char(fprice,'L99,999') from food</queryString>
+				</query>
+				<query>
+					<queryString>select foodno,fname,to_char(fprice,'L99,999') fprice from food</queryString>
+				</query>
+				<query>
+					<queryString>select foodno,fname,to_char(fprice,'L99,999') fprice from food order by foodno asc</queryString>
+				</query>
+				<query>
+					<queryString>select foodno,fname,to_char(fprice,'L99,999') fprice from food order by fname asc</queryString>
+				</query>
+				<query>
+					<queryString>create sequence seq1 start with 10 increment by 1 nocache</queryString>
+				</query>
+				<query>
+					<queryString>delete from client</queryString>
+				</query>
+				<query>
+					<queryString>select * from client</queryString>
+				</query>
+				<query>
+					<queryString>drop table client</queryString>
+				</query>
+				<query>
+					<queryString>drop table cart</queryString>
+				</query>
+				<query>
+					<queryString>drop table mytravel</queryString>
+				</query>
+				<query>
+					<queryString>drop table travelagency</queryString>
+				</query>
+				<query>
+					<queryString>drop table person</queryString>
+				</query>
+				<query>
+					<queryString>drop table shop</queryString>
+				</query>
+				<query>
+					<queryString>drop table student</queryString>
+				</query>
+				<query>
+					<queryString>select * from sawon</queryString>
+				</query>
+				<query>
+					<queryString>select buseo,count(*) count, round(avg(pay),0) pay from sawon group by buseo</queryString>
+				</query>
+			</queryList>
+		</bookmark>
+		<bookmark>
+			<name>mysql_angel</name>
+			<username>angel</username>
+			<password>1234</password>
+			<prompt>false</prompt>
+			<connect>jdbc:mysql://localhost:3306/bitcamp?serverTimezone=Asia/Seoul</connect>
+			<autoCommit>true</autoCommit>
+			<autoCommitPreference>Always True</autoCommitPreference>
+			<autoCommitIgnoreView>false</autoCommitIgnoreView>
+			<quoteAll>false</quoteAll>
+			<sendQueryAsIs>false</sendQueryAsIs>
+			<stripNewline>false</stripNewline>
+			<shutdownOnDisconnect>false</shutdownOnDisconnect>
+			<defaultEncoding />
+			<driver>com.mysql.cj.jdbc.Driver</driver>
+			<type>MYSQL</type>
+			<substituteVariables>false</substituteVariables>
+			<variablesRegexp>\$\{(.*?)\}</variablesRegexp>
+			<driverLocation>C:\java0711\mysql-connector-java-8.0.22.jar</driverLocation>
+			<Other_Schemas schemaRule="useSelected">
+				<schema>bitcamp</schema>
+			</Other_Schemas>
+			<quickList />
+			<queryList>
+				<query>
+					<queryString>insert into simpleboard (writer,pass,subject,content,readcount,writeday)
+ values ('이효리','1234','출력은 각자','열심히 해봐요',0,now())</queryString>
+				</query>
+				<query>
+					<queryString>insert into simpleboard (writer,pass,subject,content,readcount,writeday)
+ values ('유재석','1234','조회수도 줄까요','일단 100으로 시작',100,now())</queryString>
+				</query>
+				<query>
+					<queryString>select max(num) from simpleboard</queryString>
+				</query>
+				<query>
+					<queryString>select max(num) max from simpleboard</queryString>
+				</query>
+				<query>
+					<queryString>delete from simpleboard where num=10</queryString>
+				</query>
+				<query>
+					<queryString>select * from myshop where sangpum like '%이쁜%'</queryString>
+				</query>
+				<query>
+					<queryString>select * from myshop where sangpum like '%기합%'</queryString>
+				</query>
+				<query>
+					<queryString>create table member (
+	num int auto_increment primary key,
+    loginid varchar(20),
+    pass varchar(20),
+	name varchar(20),
+	photo varchar(100),
+    hp varchar(30),
+	email varchar(50),
+	address varchar(300),
+	gaipday datetime)</queryString>
+				</query>
+				<query>
+					<queryString>insert into member values (null,'angel','1234','천사','9.jpg','010-2222-2222','angel@naver.com','서울시 강남구',now())</queryString>
+				</query>
+				<query>
+					<queryString>select count(*) from member where loginid='angel' and pass='1234'</queryString>
+				</query>
+				<query>
+					<queryString>select count(*) from member</queryString>
+				</query>
+				<query>
+					<queryString>update member set loginid='ccc',name='ccc',email='ccc@naver.com',address='테스트주소'</queryString>
+				</query>
+				<query>
+					<queryString>update member set loginid='goongye',name='궁예',email='goongye@goguryeo.com',address='후고구려' where num='10'</queryString>
+				</query>
+				<query>
+					<queryString>update member set loginid='aaa',name='세경씨무서운사람',email='jewely@highkick.com',address='하이킥' where num='8'</queryString>
+				</query>
+				<query>
+					<queryString>create table reboard (
+	num int auto_increment primary key,
+	id varchar(20),
+	name varchar(20),
+	subject varchar(1000),
+	photo varchar(1000),
+	content varchar(2000),
+	readcount int default 0,
+	likes int default 0,
+	regroup int,
+	restep int,
+	relevel int,
+	writeday datetime)</queryString>
+				</query>
+				<query>
+					<queryString>select ifnull(max(num),0) from reboard</queryString>
+				</query>
+				<query>
+					<queryString>update reboard set id='ccc', name='테스트' where num='1'</queryString>
+				</query>
+				<query>
+					<queryString>delete from reboard where num='1'</queryString>
+				</query>
+				<query>
+					<queryString>select * from member</queryString>
+				</query>
+				<query>
+					<queryString>delete from member where num=2</queryString>
+				</query>
+			</queryList>
+		</bookmark>
+	</bookmarks>
+</SAVED_DATA>

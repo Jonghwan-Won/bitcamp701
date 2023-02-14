@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        div.timer{
+            width: 500px;
+            height: 150px;
+            border: 10px groove gray;
+            text-align: center; /* 글자 가로 가운데 */
+            line-height: 150px; /* 글자 세로 가운데 */
+            margin: auto;
+            font-family: 'Jua';
+            font-size: 45px;
+            text-shadow: 5px 5px 5px gray;
+
+        }
+    </style>
+    
+    <script>
+        window.onload=function()
+        {
+            t=document.querySelector(".timer");
+
+            //시간 출력
+            initTimer();
+
+            //1초단위로 시간 다시 출력하기
+            setInterval(initTimer,1000);
+        }
+
+        function initTimer()
+        {
+            //현재 시간 얻기
+            var date=new Date();
+            var h=date.getHours();
+            var m=date.getMinutes();
+            var s=date.getSeconds();
+            
+            //시분초가 한자리숫자일경우에는 앞에 0 붙이기
+            var msg=(h<10?"0":"")+h+":"+(m<10?"0":"")+m+":"+(s<10?"0":"")+s;
+
+            //div timer 에 출력
+            t.innerHTML=msg;
+        }
+    </script>
+
+    
+</head>
+<body>
+    <div class="timer">00:00:00</div>
+</body>
+</html>
